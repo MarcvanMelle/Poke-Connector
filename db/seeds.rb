@@ -1,7 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require_relative 'seed_helper'
+
+i = 1
+721.times do
+  pokedata = populate_pokemon(i)
+  typeA = pokedata["types"][0]["type"]["name"]
+  typeB = nil
+  typeB = pokedata["types"][1]["type"]["name"] if pokedata["types"][1]
+  Pokemon.create(name: pokedata["name"].capitalize, sprite: "#{pokedata["name"]}.gif", pokedex_id: i, typeA: typeA, typeB: typeB)
+  i += 1
+end
