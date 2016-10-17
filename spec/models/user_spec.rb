@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) { FactoryGirl.create(:user) }
 
-  #Testing for custom user methods not included in devise
+  # Testing for custom user methods not included in devise
 
   describe "#username" do
     it "should return the user's display name" do
