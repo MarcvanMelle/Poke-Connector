@@ -6,6 +6,11 @@ gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'jquery-rails'
+gem 'dotenv-rails'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
@@ -16,6 +21,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'launchy', require: false
 end
