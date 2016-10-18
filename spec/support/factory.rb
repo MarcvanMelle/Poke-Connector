@@ -13,4 +13,15 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :pokeball do
+    sequence(:description) { |n| "Short Desc#{n}"}
+    level 50
+    hpIV 0
+    attIV 0
+    defIV 0
+    spaIV 0
+    spdIV 0
+    speIV 0
+  end
 end

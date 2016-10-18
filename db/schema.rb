@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017191403) do
+ActiveRecord::Schema.define(version: 20161018172010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pokeballs", force: :cascade do |t|
+    t.integer "user_id",     null: false
+    t.integer "pokemon_id",  null: false
+    t.text    "description"
+    t.integer "level"
+    t.integer "hpIV"
+    t.integer "attIV"
+    t.integer "defIV"
+    t.integer "spaIV"
+    t.integer "spdIV"
+    t.integer "speIV"
+    t.index ["pokemon_id"], name: "index_pokeballs_on_pokemon_id", using: :btree
+    t.index ["user_id"], name: "index_pokeballs_on_user_id", using: :btree
+  end
 
   create_table "pokemons", force: :cascade do |t|
     t.string  "name",       null: false
