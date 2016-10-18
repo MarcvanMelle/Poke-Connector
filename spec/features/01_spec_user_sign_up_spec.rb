@@ -40,7 +40,6 @@ feature "User Sign-Up" do
       fill_in("Password confirmation", with: "abcedf")
       fill_in("Friend Code", with: "0000-0000-0000")
 
-
       click_button("Sign Up")
       expect(page).to have_content("Signed in as Jesse2001")
     end
