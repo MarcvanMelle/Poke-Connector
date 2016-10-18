@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Pokeball, type: :model do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:pokemon) { Pokemon.create(name: "Bulbasaur", sprite: "bulbasaur.gif", pokedex_id: 1, typeA: "poison", typeB: "grass") }
-  let(:pokeball) { FactoryGirl.create(:pokeball, user: user, pokemon: pokemon) }
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:pokemon) { Pokemon.create(name: "Bulbasaur", sprite: "bulbasaur.gif", pokedex_id: 1, typeA: "poison", typeB: "grass") }
+  let!(:pokeball) { FactoryGirl.create(:pokeball, user: user, pokemon: pokemon) }
 
   describe "#description" do
     it "should return the pokeball's description" do
