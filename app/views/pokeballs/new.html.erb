@@ -1,0 +1,60 @@
+<h1>Offer a new Pokemon</h1>
+
+<%= form_for :pokeballs, method: :post, url: pokeballs_path do |f| %>
+
+  <div class="field">
+    <%= f.label :pokemon %>
+    <%= f.select :pokemon, options_for_select(@pokemon) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :level %>
+    <em>1-100</em>
+    <%= f.number_field :level %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hpIV, "HP IV" %>
+    <em>0-31</em>
+    <%= f.number_field :hpIV %>
+  </div>
+
+  <div class="field">
+    <%= f.label :attIV, "Att IV" %>
+    <em>0-31</em>
+    <%= f.number_field :attIV %>
+  </div>
+
+  <div class="field">
+    <%= f.label :defIV, "Def IV" %>
+    <em>0-31</em>
+    <%= f.number_field :defIV %>
+  </div>
+
+  <div class="field">
+    <%= f.label :spaIV, "SpA IV" %>
+    <em>0-31</em>
+    <%= f.number_field :spaIV %>
+  </div>
+
+  <div class="field">
+    <%= f.label :spdIV, "SpD IV" %>
+    <em>0-31</em>
+    <%= f.number_field :spdIV %>
+  </div>
+
+  <div class="field">
+    <%= f.label :speIV, "Spe IV" %>
+    <em>0-31</em>
+    <%= f.number_field :speIV %>
+  </div>
+
+  <div class="submit">
+    <%= f.submit "Submit Offer" %>
+  </div>
+<% end %>
