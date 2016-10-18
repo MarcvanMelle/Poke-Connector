@@ -40,6 +40,7 @@ feature "User Sign-Up" do
       fill_in("Password confirmation", with: "abcedf")
       fill_in("Friend Code", with: "0000-0000-0000")
 
+
       click_button("Sign Up")
       expect(page).to have_content("Signed in as Jesse2001")
     end
@@ -53,7 +54,6 @@ feature "User Sign-Up" do
       fill_in("Password confirmation", with: "abcedf")
       fill_in("Friend Code", with: "0000-0000-0000")
 
-
       click_button("Sign Up")
       expect(page).to have_content("Username can't be blank")
     end
@@ -66,6 +66,7 @@ feature "User Sign-Up" do
       fill_in("Password", with: "abcedf")
       fill_in("Password confirmation", with: "abcedf")
       fill_in("Friend Code", with: "0000-0000-0000")
+
       click_button("Sign Up")
       expect(page).to have_content("Email can't be blank")
     end
@@ -78,6 +79,7 @@ feature "User Sign-Up" do
       fill_in("Password", with: "")
       fill_in("Password confirmation", with: "")
       fill_in("Friend Code", with: "0000-0000-0000")
+
       click_button("Sign Up")
       expect(page).to have_content("Password can't be blank")
     end
@@ -90,6 +92,7 @@ feature "User Sign-Up" do
       fill_in("Password", with: "abcdef")
       fill_in("Password confirmation", with: "")
       fill_in("Friend Code", with: "0000-0000-0000")
+
       click_button("Sign Up")
       expect(page).to have_content("Password confirmation doesn't match Password")
     end
@@ -102,6 +105,7 @@ feature "User Sign-Up" do
       fill_in("Password", with: "abcdef")
       fill_in("Password confirmation", with: "abcdef")
       fill_in("Friend Code", with: "0000-0000-0000")
+
       click_button("Sign Up")
       expect(page).to have_content("First name can't be blank")
     end
@@ -114,6 +118,7 @@ feature "User Sign-Up" do
       fill_in("Password", with: "abcdef")
       fill_in("Password confirmation", with: "abcdef")
       fill_in("Friend Code", with: "0000-0000-0000")
+
       click_button("Sign Up")
       expect(page).to have_content("Last name can't be blank")
     end
@@ -126,6 +131,7 @@ feature "User Sign-Up" do
       fill_in("Password", with: "abcdef")
       fill_in("Password confirmation", with: "abcdef")
       fill_in("Friend Code", with: "0000-0000-0000")
+
       click_button("Sign Up")
       expect(page).to have_content("Email is invalid")
     end
@@ -138,6 +144,7 @@ feature "User Sign-Up" do
       fill_in("Password", with: "abcdef")
       fill_in("Password confirmation", with: "abcdef!")
       fill_in("Friend Code", with: "0000-0000-0000")
+
       click_button("Sign Up")
       expect(page).to have_content("Password confirmation doesn't match Password")
     end
@@ -150,6 +157,7 @@ feature "User Sign-Up" do
       fill_in("Password", with: "abcdef")
       fill_in("Password confirmation", with: "abcdef")
       fill_in("Friend Code", with: "0000-0000-0000")
+
       click_button("Sign Up")
       expect(page).to have_content("Email has already been taken")
     end
@@ -162,6 +170,7 @@ feature "User Sign-Up" do
       fill_in("Password", with: "abcdef")
       fill_in("Password confirmation", with: "abcdef")
       fill_in("Friend Code", with: "0000-0000-0000")
+
       click_button("Sign Up")
       expect(page).to have_content("Username has already been taken")
     end
@@ -174,6 +183,7 @@ feature "User Sign-Up" do
       fill_in("Password", with: "abcde")
       fill_in("Password confirmation", with: "abcde")
       fill_in("Friend Code", with: "0000-0000-0000")
+
       click_button("Sign Up")
       expect(page).to have_content("Password is too short (minimum is 6 characters)")
     end
