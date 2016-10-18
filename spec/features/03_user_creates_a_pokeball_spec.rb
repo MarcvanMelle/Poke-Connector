@@ -5,7 +5,7 @@ feature "User creates pokeball" do
   let!(:bulbasaur) { Pokemon.create(name: "Bulbasaur", sprite: "bulbasaur.gif", pokedex_id: 1, typeA: "poison", typeB: "grass") }
   let!(:ivysaur) { Pokemon.create(name: "Ivysaur", sprite: "ivysaur.gif", pokedex_id: 2, typeA: "poison", typeB: "grass") }
   before { login_as(user, scope: :user) }
-  before { visit new_pokeball_path}
+  before { visit new_pokeball_path }
   context "User visits homepage" do
     scenario "and clicks offer link" do
       visit root_path

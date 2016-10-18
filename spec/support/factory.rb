@@ -14,14 +14,14 @@ FactoryGirl.define do
       else
         "0000-0000-00#{n}"
       end
-      }
+    }
     factory :admin do
       admin true
     end
   end
 
   factory :pokeball do
-    sequence(:description) { |n| "Short Desc#{n}"}
+    sequence(:description) { |n| "Short Desc#{n}" }
     level 50
     hpIV 0
     attIV 0

@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
 
   # Testing for custom user methods not included in devise
   # Note: if running tests on only this file change
-        # values to reflect FactoryGirl's broken sequence
+  # values to reflect FactoryGirl's broken sequence
 
   describe "#username" do
     it "should return the user's display name" do
