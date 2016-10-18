@@ -12,6 +12,15 @@
   </head>
 
   <body>
+    <div class="nav-bar">
+      <% if current_user %>
+        <h4>Signed in as <%= current_user.username %></h4>
+        <h4><%= link_to current_user.username, user_path(current_user.id) %></h4>
+      <% else %>
+        <%= link_to "Sign Up", new_user_registration_path %>
+        <%= link_to "Log In", new_user_session_path %>
+      <% end %>
+    </div>
     <div>
       <p class="notice">
         <%= notice %>
