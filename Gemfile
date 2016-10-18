@@ -10,6 +10,7 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'foundation-rails'
 
 group :development, :test do
   gem 'pry-rails'
@@ -18,6 +19,8 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'valid_attribute'
+  gem 'httparty'
+  gem 'rb-readline'
 end
 
 group :test do
