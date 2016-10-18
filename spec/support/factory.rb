@@ -8,13 +8,13 @@ FactoryGirl.define do
     password_confirmation "pikachu12345"
     sequence(:first_name) { |n| "Ash#{n}" }
     sequence(:last_name) { |n| "Ketchum#{n}" }
-    sequence(:friend_code) { |n|
+    sequence(:friend_code) do |n|
       if n < 10
         "0000-0000-000#{n}"
       else
         "0000-0000-00#{n}"
       end
-    }
+    end
     factory :admin do
       admin true
     end
