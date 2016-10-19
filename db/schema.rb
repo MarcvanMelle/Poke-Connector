@@ -10,22 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018172010) do
-
+ActiveRecord::Schema.define(version: 20161019191706) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "pokeballs", force: :cascade do |t|
-    t.integer "user_id",     null: false
-    t.integer "pokemon_id",  null: false
-    t.text    "description"
-    t.integer "level"
-    t.integer "hpIV"
-    t.integer "attIV"
-    t.integer "defIV"
-    t.integer "spaIV"
-    t.integer "spdIV"
-    t.integer "speIV"
+    t.integer  "user_id",     null: false
+    t.integer  "pokemon_id",  null: false
+    t.text     "description"
+    t.integer  "level"
+    t.integer  "hpIV"
+    t.integer  "attIV"
+    t.integer  "defIV"
+    t.integer  "spaIV"
+    t.integer  "spdIV"
+    t.integer  "speIV"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["pokemon_id"], name: "index_pokeballs_on_pokemon_id", using: :btree
     t.index ["user_id"], name: "index_pokeballs_on_user_id", using: :btree
   end
@@ -36,6 +37,16 @@ ActiveRecord::Schema.define(version: 20161018172010) do
     t.integer "pokedex_id", null: false
     t.string  "typeA",      null: false
     t.string  "typeB"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "pokemon_id", null: false
+    t.text     "decription"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pokemon_id"], name: "index_requests_on_pokemon_id", using: :btree
+    t.index ["user_id"], name: "index_requests_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

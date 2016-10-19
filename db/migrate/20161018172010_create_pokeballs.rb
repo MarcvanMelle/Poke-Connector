@@ -11,6 +11,8 @@ class CreatePokeballs < ActiveRecord::Migration[5.0]
       t.integer :spaIV
       t.integer :spdIV
       t.integer :speIV
+
+      t.timestamps
     end
   end
 end
