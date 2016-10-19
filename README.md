@@ -1,6 +1,6 @@
 ![Build Status](https://codeship.com/projects/96ea1a30-76ab-0134-3da1-4269843b54e0/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/MarcvanMelle/Poke-Connector.png)
-![Coverage Status](https://coveralls.io/repos/MarcvanMelle/Poke-Connector/badge.png)
+[![Coverage Status](https://coveralls.io/repos/github/MarcvanMelle/Poke-Connector/badge.svg?branch=master)](https://coveralls.io/github/MarcvanMelle/Poke-Connector?branch=master)
 
 # README
 
