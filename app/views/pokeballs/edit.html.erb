@@ -11,7 +11,7 @@
   <div class="row">
     <div class="field columns small-7">
       <%= f.label :description %>
-      <%= f.text_area :description %>
+      <%= f.text_area :description, value: @pokeball.description %>
     </div>
   </div>
 
@@ -19,7 +19,7 @@
     <div class="field columns small-3 float-left">
       <%= f.label :level, class: "inline" %>
       <em>(1-100)</em>
-      <%= f.number_field :level %>
+      <%= f.number_field :level, value: @pokeball.level %>
     </div>
   </div>
 
@@ -27,19 +27,19 @@
     <div class="field columns small-3 float-left">
       <%= f.label :hpIV, "HP IV", class: "inline" %>
       <em>(0-31)</em>
-      <%= f.number_field :hpIV %>
+      <%= f.number_field :hpIV, value: @pokeball.hpIV %>
     </div>
 
     <div class="field columns small-3 float-left">
       <%= f.label :attIV, "Att IV", class: "inline" %>
       <em>(0-31)</em>
-      <%= f.number_field :attIV %>
+      <%= f.number_field :attIV, value: @pokeball.attIV %>
     </div>
 
     <div class="field columns small-3 float-left">
       <%= f.label :defIV, "Def IV", class: "inline" %>
       <em>(0-31)</em>
-      <%= f.number_field :defIV %>
+      <%= f.number_field :defIV, value: @pokeball.defIV %>
     </div>
   </div>
 
@@ -47,19 +47,19 @@
     <div class="field columns small-3 float-left">
       <%= f.label :spaIV, "SpA IV", class: "inline" %>
       <em>(0-31)</em>
-      <%= f.number_field :spaIV %>
+      <%= f.number_field :spaIV, value: @pokeball.spaIV %>
     </div>
 
     <div class="field columns small-3 float-left">
       <%= f.label :spdIV, "SpD IV", class: "inline" %>
       <em>(0-31)</em>
-      <%= f.number_field :spdIV %>
+      <%= f.number_field :spdIV, value: @pokeball.spdIV %>
     </div>
 
     <div class="field columns small-3 float-left">
       <%= f.label :speIV, "Spe IV", class: "inline" %>
       <em>(0-31)</em>
-      <%= f.number_field :speIV %>
+      <%= f.number_field :speIV, value: @pokeball.speIV %>
     </div>
   </div>
 
