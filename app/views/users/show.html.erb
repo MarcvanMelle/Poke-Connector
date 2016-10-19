@@ -9,7 +9,7 @@
   <% @user.pokeballs.each do |offer| %>
     <div id="offer<%= offer.id %>" class="text-center columns small-3 pokediv callout float-left">
       <h5><%= @user.username %>'s <%= offer.pokemon.name %></h5><hr>
-      <%= link_to "#{image_tag offer.pokemon.sprite, class: 'poke-sprite'}".html_safe, pokeball_path(offer.id), id: "poke-link#{offer.id}" %>
+      <%= link_to "#{image_tag offer.pokemon.sprite, class: 'poke-sprite'}".html_safe, pokeball_path(offer.id), id: "offer-poke-link#{offer.id}" %>
     </div>
   <% end %>
 </div>
@@ -18,4 +18,12 @@
   <hr>
   <h3><%= @user.username %>'s Requests</h3>
   <hr>
+</div>
+<div class="row">
+  <% @user.requests.each do |request| %>
+    <div id="request<%= request.id %>" class="text-center columns small-3 pokediv callout float-left">
+      <h5><%= @user.username %>'s <%= request.pokemon.name %> Request</h5><hr>
+      <%= link_to "#{image_tag request.pokemon.sprite, class: 'poke-sprite'}".html_safe, request_path(request.id), id: "request-poke-link#{request.id}" %>
+    </div>
+  <% end %>
 </div>
