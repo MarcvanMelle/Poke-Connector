@@ -1,0 +1,21 @@
+<h1><%= @user.username %>'s Profile</h1>
+
+<div class="row">
+  <hr>
+  <h3><%= @user.username %>'s Pokemon</h3>
+  <hr>
+</div>
+<div class="row">
+  <% @user.pokeballs.each do |offer| %>
+    <div class="offer<%= offer.id %> text-center columns small-3 big-pokediv callout">
+      <h5><%= @user.username %>'s <%= offer.pokemon.name %></h5><hr>
+      <%= link_to "#{image_tag offer.pokemon.sprite, class: 'poke-sprite'}".html_safe, pokeball_path(offer.id) %>
+    </div>
+  <% end %>
+</div>
+
+<div class="row">
+  <hr>
+  <h3><%= @user.username %>'s Requests</h3>
+  <hr>
+</div>
