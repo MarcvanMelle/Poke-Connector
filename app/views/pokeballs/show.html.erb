@@ -1,0 +1,16 @@
+<h1><%= @pokeball.user.username %>'s Trade Offer for <%= @pokeball.pokemon.name %></h1>
+
+<div class="row">
+  <div class="text-center columns small-3 pokediv callout">
+    <%= image_tag @pokeball.pokemon.sprite, class: "poke-sprite" %>
+  </div>
+  <div>
+    <h5><strong>HP: </strong><%= @pokeball.hpIV ? @pokeball.hpIV : "?" %></h5>
+    <h5><strong>Atk: </strong><%= @pokeball.attIV ? @pokeball.attIV : "?" %></h5>
+    <h5><strong>Def: </strong><%= @pokeball.defIV ? @pokeball.defIV : "?" %></h5>
+    <h5><strong>SpA: </strong><%= @pokeball.spaIV ? @pokeball.spaIV : "?" %></h5>
+    <h5><strong>SpD: </strong><%= @pokeball.spdIV ? @pokeball.spdIV : "?" %></h5>
+    <h5><strong>Spe: </strong><%= @pokeball.speIV ? @pokeball.speIV : "?" %></h5>
+    <h5><strong>Description: </strong><%= @pokeball.description == "" ? "N/A" : @pokeball.description %></h5>
+  </div>
+</div>
