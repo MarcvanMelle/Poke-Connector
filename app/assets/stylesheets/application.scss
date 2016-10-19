@@ -1,8 +1,19 @@
 @import "*";
 
-.pokediv {
-  height: 15rem;
-  overflow: hidden;
+hr {
+  margin: 0.5rem;
+}
+
+h4, h5 {
+  margin-bottom: 0;
+}
+
+textarea {
+  height: 10rem;
+}
+
+.callout {
+  padding: 0.5rem;
 }
 
 .big-pokediv {
@@ -10,19 +21,42 @@
   overflow: hidden;
 }
 
-hr {
-  margin: 0.5rem;
+.iv {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
-.poke-sprite {
-  height: 75%;
-  width: auto;
+.inline {
+  display: inline;
+}
+
+.pokediv {
+  height: 15rem;
+  margin: 0.1rem;
   overflow: hidden;
+  width: 30%;
 }
 
 .poke-name {
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: -0.5rem;
+  width: 100%;
   position: absolute;
   bottom: 0;
+}
+
+.poke-sprite {
+  height: 60%;
+  overflow: hidden;
+  width: auto;
+}
+
+.small-pokediv {
+  height: 10rem;
+  overflow: hidden;
+}
+
+.small-poke-sprite {
+  height: 100%;
+  overflow: hidden;
+  width: auto;
 }
