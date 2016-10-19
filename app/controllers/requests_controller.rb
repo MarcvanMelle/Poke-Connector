@@ -31,7 +31,7 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
 
     if @request.user != current_user
-      flash[:errors] = "You may not edit another user's offer"
+      flash[:errors] = "You may not edit another user's request"
       redirect_to root_path
     end
   end

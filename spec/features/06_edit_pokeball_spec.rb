@@ -166,7 +166,7 @@ feature "User edits their pokeball" do
   end
 
   context "User tries to navigate to another user's edit offer page through the address bar" do
-    scenario "and is shown an 403 error page" do
+    scenario "and is shown an error message" do
       visit "/pokeballs/2/edit"
       expect(page).to have_content("You may not edit another user's offer")
     end

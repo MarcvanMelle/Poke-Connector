@@ -5,10 +5,10 @@
 </div>
 
 <div class="row">
-  <div id="offer<%= @request.id %>" class="text-center columns small-3 small-pokediv callout">
+  <div id="request<%= @request.id %>" class="text-center columns small-3 small-pokediv callout">
     <%= image_tag @request.pokemon.sprite, class: "small-poke-sprite" %>
   </div>
-  <div id="offer-detail<%= @request.id %>" class="columns small-8 float-left">
+  <div id="request-detail<%= @request.id %>" class="columns small-8 float-left">
     <div class="">
       <%= @request.pokemon.typeB if @request.pokemon.typeB %>
       <%= @request.pokemon.typeA %>
