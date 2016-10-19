@@ -26,7 +26,8 @@
     </div>
     <h5><strong>Description: </strong><%= @pokeball.description == "" ? "N/A" : @pokeball.description %></h5>
     <% if @pokeball.user == current_user %>
-      <%= link_to "Edit Pokemon Offer", edit_pokeball_path(@pokeball.id) %>
+      <%= link_to "Edit Offer", edit_pokeball_path(@pokeball.id) %>
+      <%= link_to "Delete Offer", pokeball_path(@pokeball.id), method: :delete %>
     <% end %>
   </div>
 </div>

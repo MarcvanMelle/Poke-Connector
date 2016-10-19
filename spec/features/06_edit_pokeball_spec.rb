@@ -14,7 +14,7 @@ feature "User edits their pokeball" do
   context "User visits their own pokemon offer page" do
     scenario "and clicks the edit offer link" do
       visit pokeball_path(pokeball1.id)
-      click_link("Edit Pokemon Offer")
+      click_link("Edit Offer")
 
       expect(page).to have_content("Description")
       expect(page).to have_field("Description")
@@ -161,7 +161,7 @@ feature "User edits their pokeball" do
     scenario "and does not see the edit button" do
       visit pokeball_path(pokeball2.id)
 
-      expect(page).to_not have_link("Edit Pokemon Offer")
+      expect(page).to_not have_link("Edit Offer")
     end
   end
 

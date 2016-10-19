@@ -1,7 +1,7 @@
 <h1>Pokemon Index</h1>
 <div class="row">
   <% @pokemon.each do |pokemon| %>
-    <div class="text-center columns small-3 pokediv callout">
+    <div id="poke<%= pokemon.id %>" class="text-center columns small-3 pokediv callout float-left">
       <%= link_to "#{image_tag pokemon.sprite, class: 'poke-sprite'}".html_safe, "http://bulbapedia.bulbagarden.net/wiki/#{pokemon.name}_(Pok%C3%A9mon)" %>
       <h5 class="poke-name"><%= pokemon.pokedex_id %>: <%= pokemon.name %></h5>
     </div>

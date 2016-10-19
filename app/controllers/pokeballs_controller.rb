@@ -49,6 +49,18 @@ class PokeballsController < ApplicationController
   end
 
   def destroy
+    @pokeball = Pokeball.find(params[:id])
+    if @pokeball.user == current_user
+      if @pokeball.destroy
+        flash[:success] = "Offer successfully removed."
+        redirect_to root_path
+      else
+        flash[:errors] = @pokeball.errors.full_messages.join(", ")
+        render action: :show
+      end
+    else
+      render(file: File.join(Rails.root, 'public/403.html'), status: 403, layout: false)
+    end
   end
 
   private
