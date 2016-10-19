@@ -3,7 +3,7 @@ class CreateRequests < ActiveRecord::Migration[5.0]
     create_table :requests do |t|
       t.belongs_to :user, null: false
       t.belongs_to :pokemon, null: false
-      t.text :decription
+      t.text :description, null: false
 
       t.timestamps
     end
