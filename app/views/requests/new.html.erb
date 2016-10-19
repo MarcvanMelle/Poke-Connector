@@ -1,0 +1,24 @@
+<h1>Request a new Pokemon</h1>
+
+<%= form_for :requests, method: :post, url: requests_path do |f| %>
+
+  <div class="row">
+    <div class="columns small-7">
+      <%= f.label :pokemon %>
+      <%= f.select :pokemon, options_for_select(@pokemon) %>
+    </div>
+</div>
+
+  <div class="row">
+    <div class="field columns small-7">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="submit columns small-7">
+      <%= f.submit "Submit Request" %>
+    </div>
+  </div>
+<% end %>

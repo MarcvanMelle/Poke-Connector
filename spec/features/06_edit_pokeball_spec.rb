@@ -102,6 +102,7 @@ feature "User edits their pokeball" do
 
     scenario "and fails to fill in level" do
       fill_in("Description", with: "This is a short description")
+      fill_in("Level", with: "")
 
       click_button("Submit Changes")
 
@@ -109,6 +110,7 @@ feature "User edits their pokeball" do
     end
 
     scenario "and fails to fill in description" do
+      fill_in("Description", with: "")
       fill_in("Level", with: 1)
 
       click_button("Submit Changes")
@@ -166,7 +168,7 @@ feature "User edits their pokeball" do
   end
 
   context "User tries to navigate to another user's edit offer page through the address bar" do
-    scenario "and is shown an 403 error page" do
+    scenario "and is shown an error message" do
       visit "/pokeballs/2/edit"
       expect(page).to have_content("You may not edit another user's offer")
     end

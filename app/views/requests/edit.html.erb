@@ -1,0 +1,23 @@
+<h1>Change Your Pokemon Request</h1>
+
+<%= form_for :requests, method: :put, url: request_path(@request.id) do |f| %>
+
+  <div class="row">
+    <div class="text-center columns small-3 small-pokediv callout">
+      <%= image_tag @request.pokemon.sprite, class: "small-poke-sprite" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field columns small-7">
+      <%= f.label :description %>
+      <%= f.text_area :description, value: @request.description %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="submit columns small-7">
+      <%= f.submit "Submit Changes" %>
+    </div>
+  </div>
+<% end %>

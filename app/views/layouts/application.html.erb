@@ -23,8 +23,11 @@
       <% end %>
     </div>
     <div class="home-bar">
+      <%= link_to "Home", root_path %>
       <%= link_to "Offer a Pokemon", new_pokeball_path %>
+      <%= link_to "Request a Pokemon", new_request_path %>
       <%= link_to "All Open Offers", pokeballs_path %>
+      <%= link_to "All Open Requests", requests_path %>
     </div>
     <div>
       <% if flash[:errors] %>
