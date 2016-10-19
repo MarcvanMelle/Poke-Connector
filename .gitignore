@@ -13,6 +13,8 @@
 /coverage
 !/log/.keep
 !/tmp/.keep
+codeclimate-config.patch
+.DS_Store
 
 # Ignore Byebug command history file.
 .byebug_history
