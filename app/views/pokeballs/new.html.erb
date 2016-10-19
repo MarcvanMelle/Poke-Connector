@@ -2,59 +2,71 @@
 
 <%= form_for :pokeballs, method: :post, url: pokeballs_path do |f| %>
 
-  <div class="field">
-    <%= f.label :pokemon %>
-    <%= f.select :pokemon, options_for_select(@pokemon) %>
+  <div class="row">
+    <div class="columns small-7">
+      <%= f.label :pokemon %>
+      <%= f.select :pokemon, options_for_select(@pokemon) %>
+    </div>
+</div>
+
+  <div class="row">
+    <div class="field columns small-7">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+  <div class="row">
+    <div class="field columns small-3 float-left">
+      <%= f.label :level, class: "inline" %>
+      <em>(1-100)</em>
+      <%= f.number_field :level %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :level %>
-    <em>1-100</em>
-    <%= f.number_field :level %>
+  <div class="row">
+    <div class="field columns small-3 float-left">
+      <%= f.label :hpIV, "HP IV", class: "inline" %>
+      <em>(0-31)</em>
+      <%= f.number_field :hpIV %>
+    </div>
+
+    <div class="field columns small-3 float-left">
+      <%= f.label :attIV, "Att IV", class: "inline" %>
+      <em>(0-31)</em>
+      <%= f.number_field :attIV %>
+    </div>
+
+    <div class="field columns small-3 float-left">
+      <%= f.label :defIV, "Def IV", class: "inline" %>
+      <em>(0-31)</em>
+      <%= f.number_field :defIV %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :hpIV, "HP IV" %>
-    <em>0-31</em>
-    <%= f.number_field :hpIV %>
+  <div class="row">
+    <div class="field columns small-3 float-left">
+      <%= f.label :spaIV, "SpA IV", class: "inline" %>
+      <em>(0-31)</em>
+      <%= f.number_field :spaIV %>
+    </div>
+
+    <div class="field columns small-3 float-left">
+      <%= f.label :spdIV, "SpD IV", class: "inline" %>
+      <em>(0-31)</em>
+      <%= f.number_field :spdIV %>
+    </div>
+
+    <div class="field columns small-3 float-left">
+      <%= f.label :speIV, "Spe IV", class: "inline" %>
+      <em>(0-31)</em>
+      <%= f.number_field :speIV %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :attIV, "Att IV" %>
-    <em>0-31</em>
-    <%= f.number_field :attIV %>
-  </div>
-
-  <div class="field">
-    <%= f.label :defIV, "Def IV" %>
-    <em>0-31</em>
-    <%= f.number_field :defIV %>
-  </div>
-
-  <div class="field">
-    <%= f.label :spaIV, "SpA IV" %>
-    <em>0-31</em>
-    <%= f.number_field :spaIV %>
-  </div>
-
-  <div class="field">
-    <%= f.label :spdIV, "SpD IV" %>
-    <em>0-31</em>
-    <%= f.number_field :spdIV %>
-  </div>
-
-  <div class="field">
-    <%= f.label :speIV, "Spe IV" %>
-    <em>0-31</em>
-    <%= f.number_field :speIV %>
-  </div>
-
-  <div class="submit">
-    <%= f.submit "Submit Offer" %>
+  <div class="row">
+    <div class="submit columns small-7">
+      <%= f.submit "Submit Offer" %>
+    </div>
   </div>
 <% end %>

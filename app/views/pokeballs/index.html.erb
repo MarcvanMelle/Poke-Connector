@@ -1,0 +1,28 @@
+<h1>All Current Trade Offers</h1>
+
+<% @pokeballs.each do |pokeball| %>
+  <div class="row">
+    <div id="offer<%= pokeball.id %>" class="text-center columns small-3 pokediv callout">
+      <h5><%= pokeball.user.username %>'s <%= pokeball.pokemon.name %></h5><hr>
+      <%= link_to "#{image_tag pokeball.pokemon.sprite, class: 'poke-sprite'}".html_safe, pokeball_path(pokeball.id), id: "poke-link#{pokeball.id}" %>
+    </div>
+    <div id="offer-detail<%= pokeball.id %>" class="columns small-8 float-left">
+      <h5><strong>Level: </strong><%= pokeball.level ? pokeball.level : "?" %></h5>
+      <div class="">
+        <%= pokeball.pokemon.typeB if pokeball.pokemon.typeB %>
+        <%= pokeball.pokemon.typeA %>
+      </div>
+      <h4 class="inline">IVs:</h4><em> <%= link_to "(What are IVs?)", "http://bulbapedia.bulbagarden.net/wiki/Individual_values", target: "_blank" %></em>
+      <div class="row">
+        <h5 class="iv columns small-1 float-left"><strong>HP: </strong><%= pokeball.hpIV ? pokeball.hpIV : "?" %></h5>
+        <h5 class="iv columns small-1 float-left"><strong>Atk: </strong><%= pokeball.attIV ? pokeball.attIV : "?" %></h5>
+        <h5 class="iv columns small-1 float-left"><strong>Def: </strong><%= pokeball.defIV ? pokeball.defIV : "?" %></h5>
+        <h5 class="iv columns small-1 float-left"><strong>SpA: </strong><%= pokeball.spaIV ? pokeball.spaIV : "?" %></h5>
+        <h5 class="iv columns small-1 float-left"><strong>SpD: </strong><%= pokeball.spdIV ? pokeball.spdIV : "?" %></h5>
+        <h5 class="iv columns small-1 float-left"><strong>Spe: </strong><%= pokeball.speIV ? pokeball.speIV : "?" %></h5>
+      </div>
+      <h5><strong>Description: </strong><%= pokeball.description == "" ? "N/A" : pokeball.description %></h5>
+    </div>
+  </div>
+  <hr>
+<% end %>

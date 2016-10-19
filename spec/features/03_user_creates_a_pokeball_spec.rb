@@ -91,7 +91,7 @@ feature "User creates pokeball" do
 
     scenario "and fails to fill in description" do
       select('Ivysaur', from: 'Pokemon')
-      fill_in("Level", with: 0)
+      fill_in("Level", with: 1)
 
       click_button("Submit Offer")
 

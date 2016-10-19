@@ -16,21 +16,43 @@ feature "User views profile" do
   end
 
   context "Authenticated user visits their own user page" do
-    scenario "and can view their vital statistics" do
+    scenario "and can view their offered pokemon" do
       login_as(user, scope: :user)
       visit user_path(user.id)
       expect(page).to have_content("#{user.username}'s Profile")
       expect(page).to have_content("#{user.username}'s Profile")
-      expect(page.find(".offer#{pokeball1.id}")).to have_content("#{user.username}'s #{pokeball1.pokemon.name}")
+      expect(page.find("#offer#{pokeball1.id}")).to have_content("#{user.username}'s #{pokeball1.pokemon.name}")
+    end
+
+    scenario "and can click on their offer link to see their offer" do
+      login_as(user, scope: :user)
+      visit user_path(user.id)
+      expect(page.find("#poke-link#{pokeball1.id}")['href']).to eq("/pokeballs/#{pokeball1.id}")
+
+      visit pokeball_path(pokeball1.id)
+      # Faking click on image link
+
+      expect(page).to have_content("#{pokeball1.user.username}'s Trade Offer for #{pokeball1.pokemon.name}")
     end
   end
 
   context "Authenticated user visits another user's page" do
-    scenario "and can view their vital statistics" do
+    scenario "and can view their offered pokemon" do
       login_as(user, scope: :user)
       visit user_path(rocket.id)
       expect(page).to have_content("#{rocket.username}'s Profile")
-      expect(page.find(".offer#{pokeball2.id}")).to have_content("#{rocket.username}'s #{pokeball2.pokemon.name}")
+      expect(page.find("#offer#{pokeball2.id}")).to have_content("#{rocket.username}'s #{pokeball2.pokemon.name}")
+    end
+
+    scenario "and can click on that user's offer link to see their offer" do
+      login_as(user, scope: :user)
+      visit user_path(rocket.id)
+      expect(page.find("#poke-link#{pokeball2.id}")['href']).to eq("/pokeballs/#{pokeball2.id}")
+
+      visit pokeball_path(pokeball2.id)
+      # Faking click on image link
+
+      expect(page).to have_content("#{pokeball2.user.username}'s Trade Offer for #{pokeball2.pokemon.name}")
     end
   end
 end

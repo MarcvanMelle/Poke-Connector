@@ -29,9 +29,23 @@ class PokeballsController < ApplicationController
 
   def edit
     @pokeball = Pokeball.find(params[:id])
+    if @pokeball.user != current_user
+      flash[:errors] = "You may not edit another user's offer"
+      redirect_to root_path
+    end
   end
 
   def update
+    @pokeball = Pokeball.find(params[:id])
+    if @pokeball.user == current_user
+      if @pokeball.update(update_params)
+        flash[:success] = "Offer successfully updated!"
+        redirect_to pokeball_path(@pokeball.id)
+      else
+        flash[:errors] = @pokeball.errors.full_messages.join(", ")
+        render action: :edit
+      end
+    end
   end
 
   def destroy
@@ -41,6 +55,10 @@ class PokeballsController < ApplicationController
 
   def pokeball_params(arg_pokemon)
     params.require(:pokeballs).permit(:description, :level, :hpIV, :attIV, :defIV, :spaIV, :spdIV, :speIV).merge(pokemon: arg_pokemon, user: current_user)
+  end
+
+  def update_params
+    params.require(:pokeballs).permit(:description, :level, :hpIV, :attIV, :defIV, :spaIV, :spdIV, :speIV)
   end
 
   def pokemon_names
