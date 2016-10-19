@@ -12,6 +12,10 @@ textarea {
   height: 10rem;
 }
 
+.callout {
+  padding: 0.5rem;
+}
+
 .big-pokediv {
   height: 20rem;
   overflow: hidden;
@@ -27,23 +31,23 @@ textarea {
 }
 
 .pokediv {
-  margin: 0.1rem;
   height: 15rem;
-  width: 30%;
+  margin: 0.1rem;
   overflow: hidden;
+  width: 30%;
 }
 
 .poke-name {
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: -0.5rem;
+  width: 100%;
   position: absolute;
   bottom: 0;
 }
 
 .poke-sprite {
   height: 60%;
-  width: auto;
   overflow: hidden;
+  width: auto;
 }
 
 .small-pokediv {
@@ -53,6 +57,6 @@ textarea {
 
 .small-poke-sprite {
   height: 100%;
-  width: auto;
   overflow: hidden;
+  width: auto;
 }

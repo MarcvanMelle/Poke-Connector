@@ -29,6 +29,7 @@ class PokeballsController < ApplicationController
 
   def edit
     @pokeball = Pokeball.find(params[:id])
+
     if @pokeball.user != current_user
       flash[:errors] = "You may not edit another user's offer"
       redirect_to root_path
