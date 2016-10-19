@@ -102,6 +102,7 @@ feature "User edits their pokeball" do
 
     scenario "and fails to fill in level" do
       fill_in("Description", with: "This is a short description")
+      fill_in("Level", with: "")
 
       click_button("Submit Changes")
 
@@ -109,6 +110,7 @@ feature "User edits their pokeball" do
     end
 
     scenario "and fails to fill in description" do
+      fill_in("Description", with: "")
       fill_in("Level", with: 1)
 
       click_button("Submit Changes")
