@@ -3,7 +3,7 @@ class RequestMailer < ApplicationMailer
     @user_a = user_a
     @user_b = user_b
     @request = request
-    @url  = "https://poke-connector.herokuapp.com/requests/#{request.id}"
+    @url = "https://poke-connector.herokuapp.com/requests/#{request.id}"
     mail(to: @user_a.email, subject: 'You have a new trade request!')
   end
 end
