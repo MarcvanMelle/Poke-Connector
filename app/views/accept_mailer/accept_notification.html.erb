@@ -4,14 +4,8 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h2><%= @user_a.username %>, You have a new trade request!</h2>
-    <p>
-      You have a new trade request from <%= @user_b.username %> on your <%= @pokeball.pokemon.name %>!
-    </p>
-    <p>
-      <%= @url %>
-    </p>
-    <h4>Click this link to accept their request: <%= @accept %></h4>
+    <h2><%= @user_a.username %>, <%= @user_b.username %> accepted your trade request!</h2>
+
     <p>
       <%= @user_b.username %>'s Friend Code is <%= @user_b.friend_code %>.
     </p>

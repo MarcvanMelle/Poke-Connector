@@ -4,6 +4,7 @@ class RequestMailer < ApplicationMailer
     @user_b = user_b
     @request = request
     @url = "https://poke-connector.herokuapp.com/requests/#{request.id}"
+    @accept = "http://poke-connector.herokuapp.com/users/#{user_b.id}/accept_trade"
     mail(to: @user_a.email, subject: 'You have a new trade request!')
   end
 end
