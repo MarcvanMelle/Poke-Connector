@@ -22,6 +22,7 @@ body {
 
 a {
   color: $blue;
+
   &:hover {
     color: $deep-blue;
   }
@@ -45,21 +46,40 @@ textarea {
   background-color: $pale-orange;
   color: $blue;
   margin-bottom: 0;
+
   &.danger {
     background-color: $dark-red;
     color: $white;
+
+    &:focus {
+      background-color: $deep-red;
+    }
+
     &:hover {
       background-color: $deep-red;
     }
   }
+
   &.disabled {
     color: $blue;
+
     &:hover {
       background-color: $pale-yellow;
       color: $black;
     }
+
+    &:focus {
+      background-color: $pale-yellow;
+      color: $black;
+    }
   }
+
   &:hover {
+    background-color: $pale-yellow;
+    color: $deep-blue;
+  }
+
+  &:focus {
     background-color: $pale-yellow;
     color: $deep-blue;
   }
@@ -84,6 +104,7 @@ textarea {
   border-radius: 1rem;
   margin: 1rem;
   padding: 1rem;
+
   h5 {
     margin-top: -0.5rem;
   }
