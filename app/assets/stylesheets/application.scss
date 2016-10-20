@@ -1,7 +1,7 @@
 @import "*";
 
-$light-red: #FFAAAA;
-$red-border: #D46A6A;
+$light-red: #ffaaaa;
+$red-border: #d46a6a;
 
 hr {
   margin: 0.5rem;
@@ -25,11 +25,11 @@ textarea {
 }
 
 .danger-zone {
-  margin: 1rem;
-  padding: 2rem;
+  background-color: $light-red;
   border: 2px solid $red-border;
   border-radius: 1rem;
-  background-color: $light-red;
+  margin: 1rem;
+  padding: 2rem;
 }
 
 .iv {
