@@ -1,9 +1,9 @@
 class PokeballMailer < ApplicationMailer
-  def pokeball_notification(userA, userB, offer)
-    @userA = userA
-    @userB = userB
+  def pokeball_notification(user_a, user_b, offer)
+    @user_a = user_a
+    @user_b = user_b
     @pokeball = offer
     @url  = "https://poke-connector.herokuapp.com/pokeballs/#{offer.id}"
-    mail(to: @userA.email, subject: 'You have a new trade request!')
+    mail(to: @user_a.email, subject: 'You have a new trade request!')
   end
 end
