@@ -2,17 +2,49 @@
 
 $light-red: #ffaaaa;
 $red-border: #d46a6a;
+$orange: #ef822c;
+$blue: #1e7497;
+$deep-blue: #0a4054;
+$pale-orange: #f0b35b;
+$burnt-red: #cc5242;
+$pale-yellow: #efdd7b;
+$primary: #ffc79a;
+
+body {
+  background-color: $primary;
+}
+
+a {
+  color: $blue;
+}
+
+a:hover {
+  color: $deep-blue;
+}
 
 hr {
+  border-color: $burnt-red;
   margin: 0.5rem;
 }
 
-h4, h5 {
+h1, h2, h3, h4, h5 {
+  color: $deep-blue;
   margin-bottom: 0;
 }
 
 textarea {
   height: 10rem;
+}
+
+.button {
+  background-color: $pale-orange;
+  color: $blue;
+  margin-bottom: 0;
+}
+
+.button:hover {
+  background-color: $pale-yellow;
+  color: $deep-blue;
 }
 
 .callout {
@@ -32,6 +64,10 @@ textarea {
   padding: 2rem;
 }
 
+.home-bar {
+  background-color: $pale-orange;
+}
+
 .iv {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -39,6 +75,12 @@ textarea {
 
 .inline {
   display: inline;
+}
+
+.nav-bar {
+  background-color: $orange;
+  padding-bottom: 1rem;
+  border-bottom: 0.5rem solid $burnt-red;
 }
 
 .pokediv {
