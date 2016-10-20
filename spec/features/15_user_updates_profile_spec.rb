@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature "User edits and deletes their account" do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:rocket) { FactoryGirl.create(:user, email: "TeamRocketTrio@silph.co") }
