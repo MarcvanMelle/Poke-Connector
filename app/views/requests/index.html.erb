@@ -1,9 +1,19 @@
-<h1>All Current Trade Requests</h1>
+<div class="row page-head">
+  <div class="columns small-12">
+    <h1>All Current Trade Requests</h1>
+  </div>
+</div>
+
+<div class="row search-bar">
+  <div class="columns small-12">
+
+  </div>
+</div>
 
 <% @requests.each do |request| %>
   <div class="row">
-    <div id="request<%= request.id %>" class="text-center columns small-3 pokediv callout">
-      <h5><%= request.user.username %>'s <%= request.pokemon.name %> Request</h5><hr>
+    <div id="request<%= request.id %>" class="text-center columns small-3 pokediv ">
+      <h5><%= request.user.username %>'s<br><%= request.pokemon.name %> Request</h5><hr>
       <%= link_to "#{image_tag request.pokemon.sprite, class: 'poke-sprite'}".html_safe, request_path(request.id), id: "request-poke-link#{request.id}" %>
     </div>
     <div id="request-detail<%= request.id %>" class="columns small-8 float-left">

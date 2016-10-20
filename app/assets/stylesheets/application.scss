@@ -9,6 +9,7 @@ $pale-orange: #f0b35b;
 $burnt-red: #cc5242;
 $pale-yellow: #efdd7b;
 $primary: #ffc79a;
+$pale-red: #802115;
 
 body {
   background-color: $primary;
@@ -47,6 +48,10 @@ textarea {
   color: $deep-blue;
 }
 
+.button-row {
+  background-color: $pale-orange;
+}
+
 .callout {
   padding: 0.5rem;
 }
@@ -62,6 +67,17 @@ textarea {
   border-radius: 1rem;
   margin: 1rem;
   padding: 2rem;
+}
+
+.flash-bar {
+  height: 3rem;
+  background-color: $pale-red;
+  border-bottom: 0.5rem solid $burnt-red;
+}
+
+.footer {
+  height: 5rem;
+  background-color: $orange;
 }
 
 .home-bar {
@@ -81,6 +97,10 @@ textarea {
   background-color: $orange;
   border-bottom: 0.5rem solid $burnt-red;
   padding-bottom: 1rem;
+}
+
+.page-head {
+  background-color: $orange;
 }
 
 .pokediv {
@@ -103,6 +123,11 @@ textarea {
   width: auto;
 }
 
+.search-bar {
+  height: 2rem;
+  background-color: $pale-orange;
+}
+
 .small-pokediv {
   height: 10rem;
   overflow: hidden;
@@ -112,4 +137,9 @@ textarea {
   height: 100%;
   overflow: hidden;
   width: auto;
+}
+
+.trade-bar {
+  background-color: $burnt-red;
+  padding-left: 2rem;
 }

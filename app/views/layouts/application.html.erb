@@ -33,22 +33,22 @@
         <%= link_to "All Open Requests", requests_path, class: "button" %>
       </div>
     </div>
-    <div>
-      <% if flash[:errors] %>
-        <p><%= flash[:errors] %></p>
-      <% end %>
-      <% if flash[:success] %>
-        <p><%= flash[:success] %></p>
-      <% end %>
-      <p class="notice">
+    <div class="row">
+      <div class="columns-12 flash-bar">
+        <% if flash[:errors] %>
+          <%= flash[:errors] %>
+        <% end %>
+        <% if flash[:success] %>
+          <%= flash[:success] %>
+        <% end %>
         <%= notice %>
-      </p>
-      <p class="alert">
         <%= alert %>
-      </p>
+      </div>
     </div>
 
     <%= yield %>
+    <div class="row footer">
 
+    </div>
   </body>
 </html>
