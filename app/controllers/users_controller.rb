@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:home]
+  before_action :prevent_dupe_pokeball, only: [:send_trade_mail]
+  before_action :prevent_dupe_request, only: [:request_trade_mail]
 
   def home
   end
@@ -34,5 +36,21 @@ class UsersController < ApplicationController
     end
     ActiveRequest.create(user: @user_b, request: @request)
     redirect_to request_path(@request.id)
+  end
+
+  private
+
+  def prevent_dupe_pokeball
+    if Pokeball.find(params[:id]).active_pokeballs.find_by(user: current_user)
+      flash[:errors] = "You have already sent a trade request for this pokemon" if current_user
+      redirect_to pokeball_path(params[:id])
+    end
+  end
+
+  def prevent_dupe_request
+    if Request.find(params[:id]).active_requests.find_by(user: current_user)
+      flash[:errors] = "You have already sent a trade request for this pokemon" if current_user
+      redirect_to request_path(params[:id])
+    end
   end
 end
