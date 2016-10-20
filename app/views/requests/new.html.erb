@@ -1,4 +1,14 @@
-<h1>Request a new Pokemon</h1>
+<div class="row page-head">
+  <div class="columns small-12">
+    <h1>Request a new Pokemon</h1>
+  </div>
+</div>
+
+<div class="row search-bar">
+  <div class="columns small-12">
+
+  </div>
+</div>
 
 <%= form_for :requests, method: :post, url: requests_path do |f| %>
 
@@ -16,9 +26,9 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row button-row submit-zone">
     <div class="submit columns small-7">
-      <%= f.submit "Submit Request" %>
+      <%= f.submit "Submit Request", class: "button" %>
     </div>
   </div>
 <% end %>

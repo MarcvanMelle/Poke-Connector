@@ -1,6 +1,8 @@
 @import "*";
 
 $light-red: #ffaaaa;
+$dark-red: #e07373;
+$deep-red: #bf4545;
 $red-border: #d46a6a;
 $orange: #ef822c;
 $blue: #1e7497;
@@ -9,6 +11,10 @@ $pale-orange: #f0b35b;
 $burnt-red: #cc5242;
 $pale-yellow: #efdd7b;
 $primary: #ffc79a;
+$pale-red: #802115;
+$pale-blue: #a0b3bb;
+$white: #ffffff;
+$black: #000000;
 
 body {
   background-color: $primary;
@@ -16,10 +22,10 @@ body {
 
 a {
   color: $blue;
-}
 
-a:hover {
-  color: $deep-blue;
+  &:hover {
+    color: $deep-blue;
+  }
 }
 
 hr {
@@ -40,11 +46,47 @@ textarea {
   background-color: $pale-orange;
   color: $blue;
   margin-bottom: 0;
+
+  &.danger {
+    background-color: $dark-red;
+    color: $white;
+
+    &:focus {
+      background-color: $deep-red;
+    }
+
+    &:hover {
+      background-color: $deep-red;
+    }
+  }
+
+  &.disabled {
+    color: $blue;
+
+    &:hover {
+      background-color: $pale-yellow;
+      color: $black;
+    }
+
+    &:focus {
+      background-color: $pale-yellow;
+      color: $black;
+    }
+  }
+
+  &:hover {
+    background-color: $pale-yellow;
+    color: $deep-blue;
+  }
+
+  &:focus {
+    background-color: $pale-yellow;
+    color: $deep-blue;
+  }
 }
 
-.button:hover {
-  background-color: $pale-yellow;
-  color: $deep-blue;
+.button-row {
+  background-color: $pale-orange;
 }
 
 .callout {
@@ -61,7 +103,23 @@ textarea {
   border: 2px solid $red-border;
   border-radius: 1rem;
   margin: 1rem;
-  padding: 2rem;
+  padding: 1rem;
+
+  h5 {
+    margin-top: -0.5rem;
+  }
+}
+
+.flash-bar {
+  background-color: $pale-red;
+  border-bottom: 0.5rem solid $burnt-red;
+  color: $white;
+  height: 3rem;
+}
+
+.footer {
+  background-color: $orange;
+  height: 5rem;
 }
 
 .home-bar {
@@ -81,6 +139,10 @@ textarea {
   background-color: $orange;
   border-bottom: 0.5rem solid $burnt-red;
   padding-bottom: 1rem;
+}
+
+.page-head {
+  background-color: $orange;
 }
 
 .pokediv {
@@ -103,13 +165,40 @@ textarea {
   width: auto;
 }
 
+.search-bar {
+  background-color: $pale-orange;
+  height: 2rem;
+  margin-bottom: 2rem;
+}
+
 .small-pokediv {
   height: 10rem;
   overflow: hidden;
+  margin: 1rem;
 }
 
 .small-poke-sprite {
   height: 100%;
   overflow: hidden;
   width: auto;
+}
+
+.submit-zone {
+  margin-top: 2rem;
+}
+
+.trade-bar {
+  background-color: $burnt-red;
+  padding-left: 2rem;
+}
+
+// =============================
+
+#error_explanation {
+  background-color: $light-red;
+  border: 2px solid $red-border;
+  border-radius: 1rem;
+  color: $white;
+  margin: 0 2rem 2rem;
+  padding: 1rem;
 }

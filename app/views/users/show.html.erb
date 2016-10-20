@@ -1,31 +1,45 @@
-<h1><%= @user.username %>'s Profile</h1>
-<% if current_user == @user %>
-  <%= link_to "Edit Profile", edit_user_registration_path %>
-<% end %>
-<div class="row">
-  <hr>
-  <h3><%= @user.username %>'s Pokemon</h3>
-  <hr>
+<div class="row page-head">
+  <div class="columns small-12">
+    <h1><%= @user.username %>'s Profile</h1>
+  </div>
+</div>
+<div class="row button-row">
+  <div class="columns small-12">
+    <% if current_user == @user %>
+      <%= link_to "Edit Profile", edit_user_registration_path, class: "button" %>
+    <% end %>
+  </div>
 </div>
 <div class="row">
-  <% @user.pokeballs.each do |offer| %>
-    <div id="offer<%= offer.id %>" class="text-center columns small-3 pokediv callout float-left">
-      <h5><%= @user.username %>'s <%= offer.pokemon.name %></h5><hr>
+  <h3 class="trade-bar"><%= @user.username %>'s Pokemon</h3>
+</div>
+<div class="row">
+  <% @user.pokeballs.each_with_index do |offer, index| %>
+    <div id="offer<%= offer.id %>" class="text-center columns small-3 pokediv float-left">
+      <h5><%= @user.username %>'s<br><%= offer.pokemon.name %></h5><hr>
       <%= link_to "#{image_tag offer.pokemon.sprite, class: 'poke-sprite'}".html_safe, pokeball_path(offer.id), id: "offer-poke-link#{offer.id}" %>
     </div>
+    <% if index % 3 == 2%>
+      <div class="columns small-12">
+        <hr>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
 <div class="row">
-  <hr>
-  <h3><%= @user.username %>'s Requests</h3>
-  <hr>
+  <h3 class="trade-bar"><%= @user.username %>'s Requests</h3>
 </div>
 <div class="row">
-  <% @user.requests.each do |request| %>
-    <div id="request<%= request.id %>" class="text-center columns small-3 pokediv callout float-left">
-      <h5><%= @user.username %>'s <%= request.pokemon.name %> Request</h5><hr>
+  <% @user.requests.each_with_index do |request, index| %>
+    <div id="request<%= request.id %>" class="text-center columns small-3 pokediv float-left">
+      <h5><%= request.pokemon.name %><br>Request</h5><hr>
       <%= link_to "#{image_tag request.pokemon.sprite, class: 'poke-sprite'}".html_safe, request_path(request.id), id: "request-poke-link#{request.id}" %>
     </div>
+    <% if index % 3 == 2%>
+      <div class="columns small-12">
+        <hr>
+      </div>
+    <% end %>
   <% end %>
 </div>

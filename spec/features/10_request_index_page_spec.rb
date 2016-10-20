@@ -15,10 +15,10 @@ feature "User views pokeball" do
     scenario "and navigates to open requests page" do
       visit root_path
       click_link("All Open Requests")
-      expect(page.find("#request#{request1.id}")).to have_content("#{request1.user.username}'s #{request1.pokemon.name} Request")
+      expect(page.find("#request#{request1.id}")).to have_content("#{request1.user.username}'s#{request1.pokemon.name} Request")
       expect(page.find("#request-detail#{request1.id}")).to have_content("Description: #{request1.description}")
 
-      expect(page.find("#request#{request2.id}")).to have_content("#{request2.user.username}'s #{request2.pokemon.name}")
+      expect(page.find("#request#{request2.id}")).to have_content("#{request2.user.username}'s#{request2.pokemon.name}")
       expect(page.find("#request-detail#{request2.id}")).to have_content("Description: #{request2.description}")
     end
 

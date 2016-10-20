@@ -19,8 +19,9 @@
           <h5 class="text-right"><%= link_to "My Profile", user_path(current_user.id) %></h4>
           <h5 class="text-right"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></h4>
         <% else %>
-          <h5><%= link_to "Sign Up", new_user_registration_path %></h5>
-          <h5><%= link_to "Log In", new_user_session_path %></h5>
+          <h5 class="text-right"><%= link_to "Sign Up", new_user_registration_path %></h5>
+          <h5 class="text-right"><%= link_to "Log In", new_user_session_path %></h5>
+          <h5 class="text-right"><%= link_to "Forgot your password?", new_user_password_path %></h5>
         <% end %>
       </div>
     </div>
@@ -33,22 +34,22 @@
         <%= link_to "All Open Requests", requests_path, class: "button" %>
       </div>
     </div>
-    <div>
-      <% if flash[:errors] %>
-        <p><%= flash[:errors] %></p>
-      <% end %>
-      <% if flash[:success] %>
-        <p><%= flash[:success] %></p>
-      <% end %>
-      <p class="notice">
+    <div class="row">
+      <div class="columns-12 flash-bar text-center">
+        <% if flash[:errors] %>
+          <%= flash[:errors] %>
+        <% end %>
+        <% if flash[:success] %>
+          <%= flash[:success] %>
+        <% end %>
         <%= notice %>
-      </p>
-      <p class="alert">
         <%= alert %>
-      </p>
+      </div>
     </div>
 
     <%= yield %>
+    <div class="row footer">
 
+    </div>
   </body>
 </html>
