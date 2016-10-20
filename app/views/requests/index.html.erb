@@ -16,11 +16,13 @@
       <h5><%= request.user.username %>'s<br><%= request.pokemon.name %> Request</h5><hr>
       <%= link_to "#{image_tag request.pokemon.sprite, class: 'poke-sprite'}".html_safe, request_path(request.id), id: "request-poke-link#{request.id}" %>
     </div>
+    <br>
     <div id="request-detail<%= request.id %>" class="columns small-8 float-left">
       <div class="">
-        <%= request.pokemon.typeB if request.pokemon.typeB %>
-        <%= request.pokemon.typeA %>
+        <%= image_tag "types/#{request.pokemon.typeB}.png" if request.pokemon.typeB %>
+        <%= image_tag "types/#{request.pokemon.typeA}.png" %>
       </div>
+      <br>
       <h5><strong>Description: </strong><%= request.description == "" ? "N/A" : request.description %></h5>
     </div>
   </div>

@@ -1,37 +1,37 @@
 <div class="row">
-  <div class="columns small-8">
+  <div class="columns small-12 page-head">
     <h2><%= @request.user.username %>'s Trade Request for <%= @request.pokemon.name %></h2>
   </div>
 </div>
 
 <div class="row">
-  <div id="request<%= @request.id %>" class="text-center columns small-3 small-pokediv callout">
+  <div id="request<%= @request.id %>" class="text-center columns small-3 small-pokediv">
     <%= image_tag @request.pokemon.sprite, class: "small-poke-sprite" %>
   </div>
+  <br>
   <div id="request-detail<%= @request.id %>" class="columns small-8 float-left">
     <div class="">
-      <%= @request.pokemon.typeB if @request.pokemon.typeB %>
-      <%= @request.pokemon.typeA %>
+      <%= image_tag "types/#{@request.pokemon.typeB}.png" if @request.pokemon.typeB %>
+      <%= image_tag "types/#{@request.pokemon.typeA}.png" %>
     </div>
+    <br>
     <h5><strong>Description: </strong><%= @request.description == "" ? "N/A" : @request.description %></h5>
-    <% if @request.user == current_user %>
-      <%= link_to "Edit Request", edit_request_path(@request.id) %>
-      <%= link_to "Delete Request", request_path(@request.id), method: :delete %>
-    <% end %>
   </div>
 </div>
-<div class="row">
+<div class="row button-row">
   <div class="columns small-12">
+    <% if @request.user == current_user %>
+      <%= link_to "Edit Request", edit_request_path(@request.id), class: "button" %>
+      <%= link_to "Delete Request", request_path(@request.id), method: :delete, class: "button" %>
+    <% end %>
     <% if current_user && current_user != @request.user && !@active %>
-    <%= link_to "Send Trade Request", request_trade_mail_user_path %>
+      <%= link_to "Send Trade Request", request_trade_mail_user_path, class: "button" %>
     <% elsif current_user && current_user == @request.user %>
-    <div class="callout columns small-4">
-      You cannot request to trade with yourself.
-    </div>
+      <div class="button disabled">You cannot request to trade with yourself.</div>
     <% elsif @active %>
-      You have already sent a request
+      <div class="button disabled">You have already sent a request</div>
     <% else %>
-    <%= link_to "You must be logged in to request a trade", new_user_session_path %>
+      <%= link_to "You must be logged in to request a trade", new_user_session_path, class: "button" %>
     <% end %>
   </div>
 </div>
