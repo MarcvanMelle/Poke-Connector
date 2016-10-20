@@ -30,4 +30,18 @@
       <%= link_to "Delete Offer", pokeball_path(@pokeball.id), method: :delete %>
     <% end %>
   </div>
+  <hr>
+</div>
+<div class="row">
+  <div class="columns small-12">
+    <% if current_user && current_user != @pokeball.user %>
+    <%= link_to "Send Trade Request", send_trade_mail_user_path %>
+    <% elsif current_user && current_user == @pokeball.user %>
+    <div class="callout columns small-4">
+      You cannot request to trade with yourself.
+    </div>
+    <% else %>
+    <%= link_to "You must be logged in to request a trade", new_user_session_path %>
+    <% end %>
+  </div>
 </div>
