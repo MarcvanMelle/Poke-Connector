@@ -19,6 +19,8 @@ feature "User sends a trade request to anothe user" do
       click_link("Send Trade Request")
 
       expect(page).to have_content("Cannot Trade in dev-mode(pokeball).")
+      expect(page).to have_content("You have already sent a request")
+      expect(page).to_not have_link("Send Trade Request")
     end
   end
 
@@ -29,6 +31,8 @@ feature "User sends a trade request to anothe user" do
       click_link("Send Trade Request")
 
       expect(page).to have_content("Cannot Trade in dev-mode(request).")
+      expect(page).to have_content("You have already sent a request")
+      expect(page).to_not have_link("Send Trade Request")
     end
   end
 

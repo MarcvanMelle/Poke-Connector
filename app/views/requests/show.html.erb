@@ -22,12 +22,14 @@
 </div>
 <div class="row">
   <div class="columns small-12">
-    <% if current_user && current_user != @request.user %>
+    <% if current_user && current_user != @request.user && !@active %>
     <%= link_to "Send Trade Request", request_trade_mail_user_path %>
     <% elsif current_user && current_user == @request.user %>
     <div class="callout columns small-4">
       You cannot request to trade with yourself.
     </div>
+    <% elsif @active %>
+      You have already sent a request
     <% else %>
     <%= link_to "You must be logged in to request a trade", new_user_session_path %>
     <% end %>
