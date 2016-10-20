@@ -22,7 +22,7 @@ feature "User views profile" do
       login_as(user, scope: :user)
       visit user_path(user.id)
       expect(page).to have_content("#{user.username}'s Profile")
-      expect(page.find("#offer#{pokeball1.id}")).to have_content("#{user.username}'s #{pokeball1.pokemon.name}")
+      expect(page.find("#offer#{pokeball1.id}")).to have_content("#{user.username}'s#{pokeball1.pokemon.name}")
     end
 
     scenario "and can view their requested pokemon" do
@@ -30,7 +30,7 @@ feature "User views profile" do
       visit user_path(user.id)
 
       expect(page).to have_content("#{user.username}'s Profile")
-      expect(page.find("#request#{request1.id}")).to have_content("#{user.username}'s #{request1.pokemon.name}")
+      expect(page.find("#request#{request1.id}")).to have_content("#{request1.pokemon.name}Request")
     end
 
     scenario "and can click on their offer link to see their offer" do
@@ -62,7 +62,7 @@ feature "User views profile" do
       visit user_path(rocket.id)
 
       expect(page).to have_content("#{rocket.username}'s Profile")
-      expect(page.find("#offer#{pokeball2.id}")).to have_content("#{rocket.username}'s #{pokeball2.pokemon.name}")
+      expect(page.find("#offer#{pokeball2.id}")).to have_content("#{rocket.username}'s#{pokeball2.pokemon.name}")
     end
 
     scenario "and can view their requested pokemon" do
@@ -70,7 +70,7 @@ feature "User views profile" do
       visit user_path(rocket.id)
 
       expect(page).to have_content("#{rocket.username}'s Profile")
-      expect(page.find("#request#{request2.id}")).to have_content("#{rocket.username}'s #{request2.pokemon.name}")
+      expect(page.find("#request#{request2.id}")).to have_content("#{request2.pokemon.name}Request")
     end
 
     scenario "and can click on that user's offer link to see their offer" do

@@ -22,10 +22,9 @@ body {
 
 a {
   color: $blue;
-}
-
-a:hover {
-  color: $deep-blue;
+  &:hover {
+    color: $deep-blue;
+  }
 }
 
 hr {
@@ -46,29 +45,24 @@ textarea {
   background-color: $pale-orange;
   color: $blue;
   margin-bottom: 0;
-}
-
-.button:hover {
-  background-color: $pale-yellow;
-  color: $deep-blue;
-}
-
-.button.danger {
-  background-color: $dark-red;
-  color: $white;
-}
-
-.button.danger:hover {
-  background-color: $deep-red;
-}
-
-.button.disabled {
-  color: $blue;
-}
-
-.button.disabled:hover {
-  background-color: $pale-yellow;
-  color: $black;
+  &.danger {
+    background-color: $dark-red;
+    color: $white;
+    &:hover {
+      background-color: $deep-red;
+    }
+  }
+  &.disabled {
+    color: $blue;
+    &:hover {
+      background-color: $pale-yellow;
+      color: $black;
+    }
+  }
+  &:hover {
+    background-color: $pale-yellow;
+    color: $deep-blue;
+  }
 }
 
 .button-row {
@@ -90,22 +84,21 @@ textarea {
   border-radius: 1rem;
   margin: 1rem;
   padding: 1rem;
-}
-
-.danger-zone h5 {
-  margin-top: -0.5rem;
+  h5 {
+    margin-top: -0.5rem;
+  }
 }
 
 .flash-bar {
-  height: 3rem;
   background-color: $pale-red;
-  color: $white;
   border-bottom: 0.5rem solid $burnt-red;
+  color: $white;
+  height: 3rem;
 }
 
 .footer {
-  height: 5rem;
   background-color: $orange;
+  height: 5rem;
 }
 
 .home-bar {
@@ -152,8 +145,8 @@ textarea {
 }
 
 .search-bar {
-  height: 2rem;
   background-color: $pale-orange;
+  height: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -178,13 +171,13 @@ textarea {
   padding-left: 2rem;
 }
 
-/* ============================= */
+// =============================
 
 #error_explanation {
-  margin: 0 2rem 2rem 2rem;
   background-color: $light-red;
-  color: $white;
-  border-radius: 1rem;
   border: 2px solid $red-border;
+  border-radius: 1rem;
+  color: $white;
+  margin: 0 2rem 2rem;
   padding: 1rem;
 }
