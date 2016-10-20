@@ -7,6 +7,7 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find(params[:id])
+    @active = @request.active_requests.find_by(user: current_user)
   end
 
   def new

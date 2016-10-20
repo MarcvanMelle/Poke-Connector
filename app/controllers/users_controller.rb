@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     else
       flash[:errors] = "Cannot Trade in dev-mode(pokeball)."
     end
+    ActivePokeball.create(user: @user_b, pokeball: @pokeball)
     redirect_to pokeball_path(@pokeball.id)
   end
 
@@ -31,6 +32,7 @@ class UsersController < ApplicationController
     else
       flash[:errors] = "Cannot Trade in dev-mode(request)."
     end
+    ActiveRequest.create(user: @user_b, request: @request)
     redirect_to request_path(@request.id)
   end
 end

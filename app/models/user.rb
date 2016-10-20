@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :pokeballs
   has_many :requests
+  has_many :active_requests
+  has_many :active_pokeballs
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

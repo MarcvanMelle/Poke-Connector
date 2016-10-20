@@ -7,6 +7,7 @@ class PokeballsController < ApplicationController
 
   def show
     @pokeball = Pokeball.find(params[:id])
+    @active = @pokeball.active_pokeballs.find_by(user: current_user)
   end
 
   def new
