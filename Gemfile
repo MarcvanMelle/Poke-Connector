@@ -12,6 +12,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'foundation-rails'
 
+gem 'sidekiq'
+gem 'sidetiq'
+gem 'sinatra', github: 'sinatra/sinatra'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
