@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user_b = current_user
     @pokeball = Pokeball.find(params[:id])
     if Rails.env.production?
-      PokeballMailer.pokeball_notifcation(@user_a, @user_b, @pokeball).deliver_now
+      PokeballMailer.pokeball_notification(@user_a, @user_b, @pokeball).deliver_now
       flash[:success] = "Trade request sent!"
     else
       flash[:errors] = "Cannot Trade in dev-mode(pokeball)."
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @user_b = current_user
     @request = Request.find(params[:id])
     if Rails.env.production?
-      RequestMailer.request_notifcation(@user_a, @user_b, @pokeball).deliver_now
+      RequestMailer.request_notification(@user_a, @user_b, @pokeball).deliver_now
       flash[:success] = "Trade request sent!"
     else
       flash[:errors] = "Cannot Trade in dev-mode(request)."
