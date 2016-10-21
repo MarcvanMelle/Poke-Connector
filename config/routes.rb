@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => "/sidekiq"
+
+  get 'pokemons/clean' => 'pokemons#clean', as: :clean
+
   root "users#home"
 
   devise_for :users
@@ -9,6 +14,7 @@ Rails.application.routes.draw do
       get :accept_trade
     end
   end
+
   resources :pokemons, only: [:index]
   resources :pokeballs
   resources :requests
