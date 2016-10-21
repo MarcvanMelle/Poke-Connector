@@ -23,7 +23,7 @@ class CleanerWorker
     requests.each do |request|
       if request.created_at < now - 14
         puts "PokeRequest cleaned"
-        request.actie_requests.destroy_all
+        request.active_requests.destroy_all
         CleanerMailer.cleaner_notification(request.user, request).deliver_now
         request.destroy
       else
