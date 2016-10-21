@@ -19,3 +19,4 @@ codeclimate-config.patch
 # Ignore Byebug command history file.
 .byebug_history
 .env
+dump.rdb
