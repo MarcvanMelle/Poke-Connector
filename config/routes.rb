@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => "/sidekiq"
 
-  get 'pokemons/clean' => 'pokemons#clean', as: :clean
-
   root "users#home"
 
   devise_for :users
