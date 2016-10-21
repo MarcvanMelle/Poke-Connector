@@ -11,6 +11,8 @@
 /log/*
 /tmp/*
 /coverage
+/app/channels
+/app/jobs
 !/log/.keep
 !/tmp/.keep
 codeclimate-config.patch
