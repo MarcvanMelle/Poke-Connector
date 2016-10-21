@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe Pokeball, type: :model do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:pokemon) { Pokemon.create(name: "Bulbasaur", sprite: "bulbasaur.gif", pokedex_id: 1, typeA: "poison", typeB: "grass") }
-  let!(:pokeball) { FactoryGirl.create(:pokeball, user: user, pokemon: pokemon) }
+  let!(:pokeball) { FactoryGirl.create(:pokeball, user: user, pokemon: pokemon, description: "Like no one ever was") }
 
   describe "#description" do
     it "should return the pokeball's description" do
-      expect(pokeball.description).to eq("Short Desc1")
+      expect(pokeball.description).to eq("Like no one ever was")
     end
   end
 
