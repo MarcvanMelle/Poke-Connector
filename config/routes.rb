@@ -16,4 +16,12 @@ Rails.application.routes.draw do
   resources :pokemons, only: [:index]
   resources :pokeballs
   resources :requests
+
+  namespace :api do
+    namespace :v1 do
+      resources :pokemons, only: [:index]
+      resources :pokeballs
+      resources :requests
+    end
+  end
 end

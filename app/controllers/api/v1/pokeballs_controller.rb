@@ -1,57 +1,59 @@
-class PokeballsController < ApplicationController
+class Api::V1::PokeballsController < ApplicationController
   # before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @pokeballs = Pokeball.all
+    pokeballs = Pokeball.all
+    users = User.all
+    pokemon = Pokemon.all
+    render json: { pokeballs: pokeballs, users: users, pokemon: pokemon }
   end
 
   def show
-    @pokeball = Pokeball.find(params[:id])
-    @active = @pokeball.active_pokeballs.find_by(user: current_user)
+    pokeball = Pokeball.find(params[:id])
+    pokeballOwner = pokeball.user
+    pokemon = pokeball.pokemon
+    active = pokeball.active_pokeballs.find_by(user: current_user)
+    render json: { pokemon: pokemon, pokeball: pokeball, owner: pokeballOwner, active: active, user: current_user }
   end
 
   def new
-    @pokeball = Pokeball.new
-    @pokemon = pokemon_names
-    respond_to do |format|
-      format.html
-      format.json do
-        render json: @pokemon.to_json
-      end
-    end
+    pokeball = Pokeball.new
+    pokemon = pokemon_names
+    render json: { pokemon: pokemon, user: current_user }
   end
 
   def create
     passed_pokemon = Pokemon.find_by(name: params[:pokeballs][:pokemon])
     new_pokeball = Pokeball.new(pokeball_params(passed_pokemon))
     if new_pokeball.save
-      redirect_to pokeball_path(new_pokeball.id)
       flash[:success] = "Pokemon succesfully offered!"
+      render json: { path: "/pokeballs/#{new_pokeball.id}" }
     else
-      @pokemon = pokemon_names
-      flash[:errors] = new_pokeball.errors.full_messages.join(", ")
-      render action: :new
+      pokemon = pokemon_names
+      flash[:errors] = new_pokeball.errors.full_messages.join(', ')
+      render json: { errors: flash[:errors], pokemon: pokemon }
     end
   end
 
   def edit
-    @pokeball = Pokeball.find(params[:id])
-
-    if @pokeball.user != current_user
+    pokeball = Pokeball.find(params[:id])
+    pokemon = pokeball.pokemon
+    if pokeball.user != current_user
       flash[:errors] = "You may not edit another user's offer"
       redirect_to root_path
     end
+    render json: { pokeball: pokeball, pokemon: pokemon }
   end
 
   def update
-    @pokeball = Pokeball.find(params[:id])
-    if @pokeball.user == current_user
-      if @pokeball.update(update_params)
+    pokeball = Pokeball.find(params[:id])
+    if pokeball.user == current_user
+      if pokeball.update(update_params)
         flash[:success] = "Offer successfully updated!"
-        redirect_to pokeball_path(@pokeball.id)
+        render json: { path: "/pokeballs/#{pokeball.id}" }
       else
-        flash[:errors] = @pokeball.errors.full_messages.join(", ")
-        render action: :edit
+        flash[:errors] = pokeball.errors.full_messages.join(", ")
+        render json: { errors: flash[:errors], pokeball: pokeball, pokemon: pokeball.pokemon }
       end
     end
   end

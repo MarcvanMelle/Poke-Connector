@@ -31,6 +31,7 @@ a {
 hr {
   border-color: $burnt-red;
   margin: 0.5rem;
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5 {
@@ -114,7 +115,6 @@ textarea {
   background-color: $pale-red;
   border-bottom: 0.5rem solid $burnt-red;
   color: $white;
-  height: 3rem;
 }
 
 .footer {
@@ -124,6 +124,10 @@ textarea {
 
 .home-bar {
   background-color: $pale-orange;
+}
+
+.home-barrier {
+  border-bottom: 0.5rem solid $burnt-red
 }
 
 .iv {
@@ -163,6 +167,10 @@ textarea {
   height: 60%;
   overflow: hidden;
   width: auto;
+}
+
+.row {
+  margin: 0;
 }
 
 .search-bar {

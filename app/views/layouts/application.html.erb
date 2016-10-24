@@ -25,29 +25,34 @@
         <% end %>
       </div>
     </div>
-    <div class="row home-bar">
-      <div class="columns small-12">
-        <%= link_to "Home", root_path, class: "button" %>
-        <%= link_to "Offer a Pokemon", new_pokeball_path, class: "button" %>
-        <%= link_to "Request a Pokemon", new_request_path, class: "button" %>
-        <%= link_to "All Open Offers", pokeballs_path, class: "button" %>
-        <%= link_to "All Open Requests", requests_path, class: "button" %>
+    <div id="app">
+      <div class="row home-bar">
+        <div class="columns small-12">
+          <%= link_to "Home", root_path, class: "button" %>
+          <%= link_to "Offer a Pokemon", new_pokeball_path, class: "button" %>
+          <%= link_to "Request a Pokemon", new_request_path, class: "button" %>
+          <%= link_to "All Open Offers", pokeballs_path, class: "button" %>
+          <%= link_to "All Open Requests", requests_path, class: "button" %>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="columns-12 flash-bar text-center">
-        <% if flash[:errors] %>
-          <%= flash[:errors] %>
-        <% end %>
-        <% if flash[:success] %>
-          <%= flash[:success] %>
-        <% end %>
-        <%= notice %>
-        <%= alert %>
+      <div class="row">
+        <div class="columns-12 flash-bar text-center">
+          <% if flash[:errors] %>
+            <%= flash[:errors] %>
+          <% end %>
+          <% if flash[:success] %>
+            <%= flash[:success] %>
+          <% end %>
+          <%= notice %>
+          <%= alert %>
+        </div>
       </div>
     </div>
 
-    <%= yield %>
+    <div id="not-app">
+      <%= yield %>
+    </div>
+
     <div class="row footer">
 
     </div>
