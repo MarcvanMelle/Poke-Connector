@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
     - db/schema.rb
+    - react/**
   #DisplayCopNames: true
 
 AccessorMethodName:
@@ -108,6 +109,9 @@ IfWithSemicolon:
 
 InlineComment:
   Enabled: false
+
+jshint:
+  enabled: false
 
 Lambda:
   Enabled: false

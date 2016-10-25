@@ -1,5 +1,5 @@
 class PokeballsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  # before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @pokeballs = Pokeball.all
@@ -13,6 +13,12 @@ class PokeballsController < ApplicationController
   def new
     @pokeball = Pokeball.new
     @pokemon = pokemon_names
+    respond_to do |format|
+      format.html
+      format.json do
+        render json: @pokemon.to_json
+      end
+    end
   end
 
   def create

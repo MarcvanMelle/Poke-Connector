@@ -18,6 +18,11 @@
 codeclimate-config.patch
 .DS_Store
 
+/node_modules
+/app/assets/javascripts/bundle.js
+/react/coverage
+
+
 # Ignore Byebug command history file.
 .byebug_history
 .env
