@@ -10,14 +10,13 @@ class Api::V1::RequestsController < ApplicationController
 
   def show
     request = Request.find(params[:id])
-    requestOwner = request.user
+    request_owner = request.user
     pokemon = request.pokemon
     active = request.active_requests.find_by(user: current_user)
-    render json: { pokemon: pokemon, request: request, owner: requestOwner, active: active, user: current_user }
+    render json: { pokemon: pokemon, request: request, owner: request_owner, active: active, user: current_user }
   end
 
   def new
-    request = Request.new
     pokemon = pokemon_names
     render json: { pokemon: pokemon, user: current_user }
   end

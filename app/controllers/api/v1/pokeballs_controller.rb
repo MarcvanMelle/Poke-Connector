@@ -10,14 +10,13 @@ class Api::V1::PokeballsController < ApplicationController
 
   def show
     pokeball = Pokeball.find(params[:id])
-    pokeballOwner = pokeball.user
+    pokeball_owner = pokeball.user
     pokemon = pokeball.pokemon
     active = pokeball.active_pokeballs.find_by(user: current_user)
-    render json: { pokemon: pokemon, pokeball: pokeball, owner: pokeballOwner, active: active, user: current_user }
+    render json: { pokemon: pokemon, pokeball: pokeball, owner: pokeball_owner, active: active, user: current_user }
   end
 
   def new
-    pokeball = Pokeball.new
     pokemon = pokemon_names
     render json: { pokemon: pokemon, user: current_user }
   end
