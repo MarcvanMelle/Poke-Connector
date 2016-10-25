@@ -1,7 +1,7 @@
 AllCops:
   Exclude:
     - db/schema.rb
-    - react
+    - react/**
   #DisplayCopNames: true
 
 AccessorMethodName:
