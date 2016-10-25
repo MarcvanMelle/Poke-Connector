@@ -59,14 +59,13 @@ class Api::V1::RequestsController < ApplicationController
   end
 
   def destroy
-    @request = Request.find(params[:id])
-    if @request.user == current_user
-      if @request.destroy
-        flash[:success] = "Request successfully removed."
-        redirect_to root_path
+    request = Request.find(params[:id])
+    if request.user == current_user
+      if request.destroy
+        render json: { path: "/", success: "Request successfully removed." }
       else
-        flash[:errors] = @request.errors.full_messages.join(", ")
-        render action: :show
+        flash[:errors] = request.errors.full_messages.join(", ")
+        render json: { path: "/requests/#{request.id}/edit", errors: flash[:errors] }
       end
     else
       render(file: File.join(Rails.root, 'public/403.html'), status: 403, layout: false)

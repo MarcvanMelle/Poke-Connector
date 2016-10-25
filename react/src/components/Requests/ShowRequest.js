@@ -11,6 +11,7 @@ class ShowRequest extends Component {
       user: {},
       active: {}
     }
+    this.handleRequestDeletion = this.handleRequestDeletion.bind(this)
   }
 
   componentDidMount() {
@@ -19,6 +20,7 @@ class ShowRequest extends Component {
     $.ajax({
       url: "/api/v1/requests/" + this.props.params.requestId
     }).done(data => {
+      debugger;
       this.setState({
         pokemon: data.pokemon,
         request: data.request,
@@ -32,18 +34,32 @@ class ShowRequest extends Component {
       }
     })
   }
-  render() {
 
+  handleRequestDeletion(e) {
+    e.preventDefault();
+    let _this = this
+    $.ajax({
+      url: '/api/v1/requests/' + this.props.params.requestId,
+      type: 'DELETE',
+      success: function(data) {
+        _this.context.router.push(data.path)
+      }
+    });
+  }
+
+
+  render() {
+    debugger;
     let editButton
     let deleteButton
     let tradeButton
     if(this.state.owner.id == this.state.user.id){
       editButton = <Link to={`/requests/${this.state.request.id}/edit`} className="button">Edit Request</Link>
-      deleteButton = <a href={`/requests/${this.state.request.id}`} className="button" rel="nofollow" data-method="delete">Delete Request</a>
+      deleteButton = <Link to="/" className="button" onClick={this.handleRequestDeletion}>Delete Request</Link>
       tradeButton = <a className="button disabled">You cannot request to trade with yourself</a>
     } else if(this.state.user.id == null) {
       tradeButton = <a href="/users/sign_in" className="button">You must be logged in to request a trade</a>
-    } else if(this.state.user.id == this.state.active.id){
+    } else if(this.state.user.id == this.state.active.user_id){
       tradeButton = <a className="button disabled">You have already sent a trade request</a>
     } else {
       tradeButton = <a href={`/users/${this.state.request.id}/request_trade_mail`} className="button">Send A Trade Request</a>
@@ -90,6 +106,10 @@ class ShowRequest extends Component {
       </div>
     )
   }
+}
+
+ShowRequest.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
 
 export default ShowRequest

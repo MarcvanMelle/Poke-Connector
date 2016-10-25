@@ -11,6 +11,7 @@ class ShowPokeball extends Component {
       user: {},
       active: {}
     }
+    this.handlePokeballDeletion = this.handlePokeballDeletion.bind(this)
   }
 
   componentDidMount() {
@@ -32,6 +33,19 @@ class ShowPokeball extends Component {
       }
     })
   }
+
+  handlePokeballDeletion(e) {
+    e.preventDefault();
+    let _this = this
+    $.ajax({
+      url: '/api/v1/pokeballs/' + this.props.params.pokeballId,
+      type: 'DELETE',
+      success: function(data) {
+        _this.context.router.push(data.path)
+      }
+    });
+  }
+
   render() {
 
     let editButton
@@ -39,11 +53,11 @@ class ShowPokeball extends Component {
     let tradeButton
     if(this.state.owner.id == this.state.user.id){
       editButton = <Link to={`/pokeballs/${this.state.pokeball.id}/edit`} className="button">Edit Offer</Link>
-      deleteButton = <a href={`/pokeballs/${this.state.pokeball.id}`} className="button" rel="nofollow" data-method="delete">Delete Offer</a>
+      deleteButton = <Link to='/' className="button" onClick={this.handlePokeballDeletion}>Delete Offer</Link>
       tradeButton = <a className="button disabled">You cannot request to trade with yourself</a>
     } else if(this.state.user.id == null) {
       tradeButton = <a href="/users/sign_in" className="button">You must be logged in to request a trade</a>
-    } else if(this.state.user.id == this.state.active.id){
+    } else if(this.state.user.id == this.state.active.user_id){
       tradeButton = <a className="button disabled">You have already sent a trade request</a>
     } else {
       tradeButton = <a href={`/users/${this.state.pokeball.id}/send_trade_mail`} className="button">Send A Trade Request</a>
@@ -111,6 +125,10 @@ class ShowPokeball extends Component {
       </div>
     )
   }
+}
+
+ShowPokeball.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
 
 export default ShowPokeball

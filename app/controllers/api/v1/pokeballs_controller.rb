@@ -59,14 +59,13 @@ class Api::V1::PokeballsController < ApplicationController
   end
 
   def destroy
-    @pokeball = Pokeball.find(params[:id])
-    if @pokeball.user == current_user
-      if @pokeball.destroy
-        flash[:success] = "Offer successfully removed."
-        redirect_to root_path
+    pokeball = Pokeball.find(params[:id])
+    if pokeball.user == current_user
+      if pokeball.destroy
+        render json: { path: "/", success: "Offer successfully removed." }
       else
-        flash[:errors] = @pokeball.errors.full_messages.join(", ")
-        render action: :show
+        flash[:errors] = pokeball.errors.full_messages.join(", ")
+        render json: { path: "/pokeballs/#{pokeball.id}/edit", errors: flash[:errors] }
       end
     else
       render(file: File.join(Rails.root, 'public/403.html'), status: 403, layout: false)

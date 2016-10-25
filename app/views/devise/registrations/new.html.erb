@@ -1,74 +1,76 @@
-<div class="row page-head">
-  <div class="columns small-12">
-    <h2>Sign up</h2>
+<div id="not-app">
+  <div class="row page-head">
+    <div class="columns small-12">
+      <h2>Sign up</h2>
+    </div>
   </div>
+
+  <div class="row search-bar">
+    <div class="columns small-12">
+
+    </div>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="row">
+      <div class="columns small-8">
+        <%= f.label :username %>
+        <%= f.text_field :username, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns small-8">
+        <%= f.label :first_name, "First Name"%>
+        <%= f.text_field :first_name %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns small-8">
+        <%= f.label :last_name, "Last Name" %>
+        <%= f.text_field :last_name %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns small-8">
+        <%= f.label :email %>
+        <%= f.email_field :email%>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns small-8">
+        <%= f.label :password, class: "inline" %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns small-8">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns small-8">
+        <%= f.label :friend_code, "Friend Code", class: "inline" %>
+        <em>(Recommended)</em>
+        <%= f.text_field :friend_code %>
+      </div>
+    </div>
+
+    <div class="row button-row">
+      <div class="columns small-8">
+        <%= f.submit "Sign Up", class: "button" %>
+      </div>
+    </div>
+  <% end %>
 </div>
-
-<div class="row search-bar">
-  <div class="columns small-12">
-
-  </div>
-</div>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="row">
-    <div class="columns small-8">
-      <%= f.label :username %>
-      <%= f.text_field :username, autofocus: true %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="columns small-8">
-      <%= f.label :first_name, "First Name"%>
-      <%= f.text_field :first_name %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="columns small-8">
-      <%= f.label :last_name, "Last Name" %>
-      <%= f.text_field :last_name %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="columns small-8">
-      <%= f.label :email %>
-      <%= f.email_field :email%>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="columns small-8">
-      <%= f.label :password, class: "inline" %>
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %>
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="columns small-8">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="columns small-8">
-      <%= f.label :friend_code, "Friend Code", class: "inline" %>
-      <em>(Recommended)</em>
-      <%= f.text_field :friend_code %>
-    </div>
-  </div>
-
-  <div class="row button-row">
-    <div class="columns small-8">
-      <%= f.submit "Sign Up", class: "button" %>
-    </div>
-  </div>
-<% end %>
