@@ -110,6 +110,9 @@ IfWithSemicolon:
 InlineComment:
   Enabled: false
 
+jshint:
+  enabled: false
+
 Lambda:
   Enabled: false
 
