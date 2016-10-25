@@ -26,7 +26,7 @@ class NewRequest extends Component {
       if(data.user){
         _this.setState({ pokemon: data.pokemon });
       } else {
-        _this.context.router.push("/")
+        _this.context.router.push("/users/sign_in")
       }
     });
   }

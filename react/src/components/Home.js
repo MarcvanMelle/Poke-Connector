@@ -40,7 +40,7 @@ class Home extends Component {
     } else {
       signUp = <h5 className="text-right"><Link to="/users/sign_up">Sign Up</Link></h5>
       logIn = <h5 className="text-right"><Link to="/users/sign_in">Log In</Link></h5>
-      forgotPW = <h5 className="text-right"><Link to="/users/password/new">Forgot your password?</Link></h5>
+      forgotPW = <h5 className="text-right"><a href="/users/password/new">Forgot your password?</a></h5>
     }
 
     return (

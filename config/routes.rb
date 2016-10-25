@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       resources :pokemons, only: [:index]
       resources :pokeballs
       resources :requests
+      resources :users, only: [:show]
       devise_for :users, controllers: { registations: 'api/v1/registations' }
     end
   end
