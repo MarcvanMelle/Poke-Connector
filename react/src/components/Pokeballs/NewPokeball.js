@@ -26,7 +26,7 @@ class NewPokeball extends Component {
     let _this = this
 
     $.ajax({
-      url: '/api/v1/pokeballs/new.json',
+      url: '/api/v1/pokeballs/new',
       contentType: 'application/json'
     }).done(data => {
       if(data.user){
@@ -176,7 +176,7 @@ class NewPokeball extends Component {
 
           <div className="row button-row submit-zone">
             <div className="submit columns small-7">
-              <input className="button" type="submit"/>
+              <input className="button" type="submit" value="Submit Offer"/>
             </div>
           </div>
         </form>

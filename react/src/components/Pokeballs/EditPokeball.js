@@ -170,7 +170,7 @@ class EditPokeball extends Component {
 
           <div className="row button-row">
             <div className="submit columns small-7">
-              <input className="button" type="submit"/>
+              <input value="Submit Changes" className="button" type="submit"/>
             </div>
           </div>
         </form>

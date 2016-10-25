@@ -19,7 +19,6 @@ class ShowPokeball extends Component {
     $.ajax({
       url: "/api/v1/pokeballs/" + this.props.params.pokeballId
     }).done(data => {
-      debugger;
       this.setState({
         pokemon: data.pokemon,
         pokeball: data.pokeball,
@@ -82,7 +81,7 @@ class ShowPokeball extends Component {
             <img src={"/assets/" + this.state.pokemon.sprite} className="poke-sprite"/>
           </div>
           <div id={"offer-detail" + this.state.pokeball.id} className="columns small-8 float-left">
-            <h5><strong>Level: {this.state.pokeball.level}</strong>{}</h5>
+            <h5><strong>Level: </strong>{this.state.pokeball.level}</h5>
             <div className="">
               {typeB}
               {typeA}
