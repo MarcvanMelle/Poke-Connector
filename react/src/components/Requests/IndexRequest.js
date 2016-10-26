@@ -7,9 +7,10 @@ class IndexRequest extends Component {
     this.state = {
       requests: [],
       users: [],
-      pokemon: []
+      pokemon: [],
+      pokeSearch: ''
     }
-
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
@@ -22,7 +23,22 @@ class IndexRequest extends Component {
     })
   }
 
+  handleChange(e) {
+    this.setState({ pokeSearch: e.target.value })
+    $.ajax({
+      url: "/api/v1/requests/1/search",
+      type: "GET",
+      data: { getPoke: e.target.value }
+    }).done(data =>{
+      this.setState({ requests: data.requests })
+    })
+  }
+
   render() {
+    let whomp
+    if(!this.state.requests[0]){
+      whomp = <div>Uh oh! No search matches</div>
+    }
 
     let allRequests = this.state.requests.map(request => {
       let user = $.grep(this.state.users, function(e){ return e.id === request.user_id })[0]
@@ -38,7 +54,7 @@ class IndexRequest extends Component {
       return(
         <div className="row">
           <div id={`request${request.id}`} className="text-center columns small-3 pokediv">
-            <h5>{user.username}s {pokemon.name}</h5><hr/>
+            <h5>{user.username}'s {pokemon.name}</h5><hr/>
             <Link to={`requests/${request.id}`} id={`poke-link${request.id}`}><img className="poke-sprite" src={`/assets/${pokemon.sprite}`}/></Link>
           </div>
           <div id={`request-detail${request.id}`} className="columns small-8 float-left">
@@ -57,7 +73,7 @@ class IndexRequest extends Component {
 
     return(
       <div>
-        <div className="row page-head">
+        <div className="row page-head text-center">
           <div className="columns small-12">
             <h1>All Current Trade Requests</h1>
           </div>
@@ -70,9 +86,10 @@ class IndexRequest extends Component {
 
         <div className="row search-bar">
           <div className="columns small-12">
-
+            <input type="text" onChange={this.handleChange}/>
           </div>
         </div>
+        {whomp}
         {allRequests}
       </div>
     )

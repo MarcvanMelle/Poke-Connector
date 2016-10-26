@@ -89,9 +89,11 @@ class NewPokeball extends Component {
       );
     });
 
+    selectOptions.unshift(<option value="">Choose a Pokemon</option>)
+
     return (
       <div>
-        <div className="row page-head">
+        <div className="row page-head text-center">
           <div className="columns small-12">
             <h1>Offer a new Pokemon</h1>
           </div>

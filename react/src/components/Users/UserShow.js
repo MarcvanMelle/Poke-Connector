@@ -76,12 +76,12 @@ class UserShow extends Component {
     })
 
     if(this.state.owner.id == this.state.user.id) {
-      editProfile = <Link to="" className="button">Edit Profile</Link>
+      editProfile = <a href="/users/edit" className="button">Edit Profile</a>
     }
 
     return(
       <div>
-        <div className="row page-head">
+        <div className="row page-head text-center">
           <div className="columns small-12">
             <h1>{this.state.owner.username}s Profile</h1>
           </div>

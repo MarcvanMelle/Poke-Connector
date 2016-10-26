@@ -19,11 +19,15 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :pokemons, only: [:index]
-      resources :pokeballs
-      resources :requests
-      resources :users, only: [:show]
       devise_for :users, controllers: { registations: 'api/v1/registations' }
+      resources :users, only: [:show]
+      resources :pokemons, only: [:index]
+      resources :pokeballs do
+        get :search
+      end
+      resources :requests do
+        get :search
+      end
     end
   end
 end

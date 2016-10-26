@@ -73,7 +73,7 @@ class ShowRequest extends Component {
 
     return (
       <div>
-        <div className="row page-head">
+        <div className="row page-head text-center">
           <div className="columns small-8">
             <h2>{this.state.owner.username}'s Trade Request for {this.state.pokemon.name}</h2>
           </div>

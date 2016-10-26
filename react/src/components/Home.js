@@ -5,7 +5,7 @@ class Home extends Component {
   constructor(props){
     super(props);
     this.state = {
-      user: null
+      user: null,
     }
     this.handleLogOut = this.handleLogOut.bind(this)
   }

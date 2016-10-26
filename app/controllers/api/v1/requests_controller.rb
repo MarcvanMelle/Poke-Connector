@@ -8,6 +8,18 @@ class Api::V1::RequestsController < ApplicationController
     render json: { requests: requests, users: users, pokemon: pokemon }
   end
 
+  def search
+    request = []
+    pokemon = Pokemon.where("name ILIKE (?)", "%#{params[:getPoke]}%")
+    pokemon.each do |poke|
+      monster = Request.where(pokemon_id: poke.id)
+      monster.each do |mon|
+        request << mon
+      end
+    end
+    render json: { requests: request }
+  end
+
   def show
     request = Request.find(params[:id])
     request_owner = request.user

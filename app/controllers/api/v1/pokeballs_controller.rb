@@ -4,8 +4,20 @@ class Api::V1::PokeballsController < ApplicationController
   def index
     pokeballs = Pokeball.all
     users = User.all
-    pokemon = Pokemon.all
+    pokemon = Pokemon.order(id: :asc)
     render json: { pokeballs: pokeballs, users: users, pokemon: pokemon }
+  end
+
+  def search
+    pokeball = []
+    pokemon = Pokemon.where("name ILIKE (?)", "%#{params[:getPoke]}%")
+    pokemon.each do |poke|
+      monster = Pokeball.where(pokemon_id: poke.id)
+      monster.each do |mon|
+        pokeball << mon
+      end
+    end
+    render json: { pokeballs: pokeball }
   end
 
   def show

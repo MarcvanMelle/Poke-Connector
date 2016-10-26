@@ -27,6 +27,7 @@
     "karma-webpack": "^1.7.0",
     "phantomjs-prebuilt": "^2.1.7",
     "react-addons-test-utils": "^15.0.2",
+    "react-mounter": "^1.2.0",
     "redux-devtools": "^3.2.0"
   },
   "dependencies": {
