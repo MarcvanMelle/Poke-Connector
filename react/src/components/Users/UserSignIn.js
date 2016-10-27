@@ -78,14 +78,14 @@ class UserSignIn extends Component {
           <div className="row">
             <div className="columns small-8">
               <label>Email</label>
-              <input type="email" name="email" onChange={this.handleFieldChange}/>
+              <input placeholder="e.g. pokemaster@example.com" type="email" name="email" onChange={this.handleFieldChange}/>
             </div>
           </div>
 
           <div className="row">
             <div className="columns small-8">
-              <label className="inline">Password</label><em>(6 characters minimum)</em>
-              <input autocomplete="off" type="password" name="password" onChange={this.handleFieldChange}/>
+              <label className="inline">Password</label>
+              <input placeholder="Your password here" autocomplete="off" type="password" name="password" onChange={this.handleFieldChange}/>
             </div>
           </div>
 

@@ -88,47 +88,47 @@ class UserSignUp extends Component {
           <div className="row">
             <div className="columns small-8">
               <label>Username</label>
-              <input type="text" name="username" onChange={this.handleFieldChange}/>
+              <input placeholder="e.g. Pokemaster2000" type="text" name="username" onChange={this.handleFieldChange}/>
             </div>
           </div>
 
           <div className="row">
             <div className="columns small-4 float-left">
               <label>First Name</label>
-              <input type="text" name="first_name" onChange={this.handleFieldChange}/>
+              <input placeholder="Ash" type="text" name="first_name" onChange={this.handleFieldChange}/>
             </div>
 
             <div className="columns small-4 float-left">
               <label>Last Name</label>
-              <input type="text" name="last_name" onChange={this.handleFieldChange}/>
+              <input placeholder="Ketchum" type="text" name="last_name" onChange={this.handleFieldChange}/>
             </div>
           </div>
 
           <div className="row">
             <div className="columns small-8">
               <label>Email</label>
-              <input type="email" name="email" onChange={this.handleFieldChange}/>
+              <input placeholder="e.g. pokemaster@example.com" type="email" name="email" onChange={this.handleFieldChange}/>
             </div>
           </div>
 
           <div className="row">
             <div className="columns small-8">
-              <label className="inline">Password</label><em>(6 characters minimum)</em>
-              <input autocomplete="off" type="password" name="password" onChange={this.handleFieldChange}/>
+              <label className="inline">Password</label>
+              <input placeholder="6 characters minimum" autocomplete="off" type="password" name="password" onChange={this.handleFieldChange}/>
             </div>
           </div>
 
           <div className="row">
             <div className="columns small-8">
               <label>Password Confirmation</label>
-              <input autocomplete="off" type="password" name="password_confirmation" onChange={this.handleFieldChange}/>
+              <input placeholder="6 characters minimum" autocomplete="off" type="password" name="password_confirmation" onChange={this.handleFieldChange}/>
             </div>
           </div>
 
           <div className="row">
             <div className="columns small-8">
-              <label className="inline">Friend Code</label><em>(Recommended)</em>
-              <input type="text" name="friend_code" onChange={this.handleFieldChange}/>
+              <label className="inline">Friend Code</label>
+              <input placeholder="0000-0000-0000" type="text" name="friend_code" onChange={this.handleFieldChange}/>
             </div>
           </div>
 

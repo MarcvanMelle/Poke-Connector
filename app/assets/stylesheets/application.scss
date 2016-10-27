@@ -20,6 +20,7 @@ $grey: #d3d3d3;
 
 body {
   background-color: $primary;
+  font-family: 'Nunito', sans-serif;
 }
 
 a {
@@ -158,7 +159,6 @@ textarea {
 .nav-bar {
   background-color: $orange;
   border-bottom: 0.5rem solid $burnt-red;
-  padding-bottom: 1rem;
 }
 
 .page-head {

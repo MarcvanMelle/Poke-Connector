@@ -6,6 +6,7 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Poke-Connector" %></title>
 
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -16,6 +17,7 @@
 
     <div id="app">
       <div class="row nav-bar">
+        <%= image_tag "logo.png" %>
         <div class="columns small-12">
           <% if current_user %>
             <h5 class="text-right">Signed in as <%= current_user.username %></h4>

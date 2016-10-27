@@ -46,7 +46,8 @@ class Home extends Component {
     return (
       <div>
         <div className="row nav-bar">
-          <div className="columns small-12">
+          <img className="columns small-2" src="/assets/Logo.png"/>
+          <div className="columns small-8 float-right">
             {currentUser}
             {myProfile}
             {logOut}
