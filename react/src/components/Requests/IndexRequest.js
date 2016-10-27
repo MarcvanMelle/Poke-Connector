@@ -37,7 +37,7 @@ class IndexRequest extends Component {
   render() {
     let whomp
     if(!this.state.requests[0]){
-      whomp = <div>Uh oh! No search matches</div>
+      whomp = <div className="row"><div className="columns small-6 small-centered text-center"><h4>Uh oh! No search matches</h4></div></div>
     }
 
     let allRequests = this.state.requests.map(request => {

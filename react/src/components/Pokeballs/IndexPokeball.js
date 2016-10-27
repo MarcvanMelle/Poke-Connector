@@ -38,7 +38,7 @@ class IndexPokeball extends Component {
 
     let whomp
     if(!this.state.pokeballs[0]){
-      whomp = <div>Uh oh! No search matches</div>
+      whomp = <div className="row"><div className="columns small-6 small-centered text-center"><h4>Uh oh! No search matches</h4></div></div>
     }
 
     let allPokeballs = this.state.pokeballs.map(pokeball => {
