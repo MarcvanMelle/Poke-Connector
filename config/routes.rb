@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get :send_trade_mail
       get :request_trade_mail
       get :accept_trade
+      get :accept_request
     end
   end
 

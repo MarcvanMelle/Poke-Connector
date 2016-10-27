@@ -39,8 +39,20 @@ class UsersController < ApplicationController
   end
 
   def accept_trade
-    @user_a = User.find(params[:id])
-    @user_b = current_user
+    @user_a = ActivePokeball.find(params[:id]).user
+    @user_b = ActivePokeball.find(params[:id]).pokeball.user
+    if Rails.env.production?
+      AcceptMailer.accept_notification(@user_a, @user_b)
+      flash[:success] = "Trade offer accepted"
+    else
+      flash[:errors] = "Cannot accept trades in dev-mode"
+    end
+    redirect_to root_path
+  end
+
+  def accept_request
+    @user_a = ActiveRequest.find(params[:id]).user
+    @user_b = ActiveRequest.find(params[:id]).pokeball.user
     if Rails.env.production?
       AcceptMailer.accept_notification(@user_a, @user_b)
       flash[:success] = "Trade offer accepted"
