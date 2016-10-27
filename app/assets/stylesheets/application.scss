@@ -18,17 +18,6 @@ $white: #ffffff;
 $black: #000000;
 $grey: #d3d3d3;
 
-.search { position: relative; }
-.search input { text-indent: 6%;}
-.search .fa-search {
-  color: $grey;
-  position: absolute;
-  left: 27.10%;
-  top: 15px;
-  font-size: 15px;
-}
-
-
 body {
   background-color: $primary;
 }
@@ -198,6 +187,22 @@ textarea {
 
 .row {
   margin: 0;
+}
+
+.search {
+  position: relative;
+
+  .fa-search {
+    color: $grey;
+    position: absolute;
+    left: 27.10%;
+    top: 15px;
+    font-size: 15px;
+  }
+
+  input {
+    text-indent: 6%;
+  }
 }
 
 .search-input {
