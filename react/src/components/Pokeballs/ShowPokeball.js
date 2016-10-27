@@ -56,7 +56,7 @@ class ShowPokeball extends Component {
       deleteButton = <Link to='/' className="button" onClick={this.handlePokeballDeletion}>Delete Offer</Link>
       tradeButton = <a className="button disabled">You cannot request to trade with yourself</a>
     } else if(this.state.user.id == null) {
-      tradeButton = <a href="/users/sign_in" className="button">You must be logged in to request a trade</a>
+      tradeButton = <Link to="/users/sign_in" className="button">You must be logged in to request a trade</Link>
     } else if(this.state.user.id == this.state.active.user_id){
       tradeButton = <a className="button disabled">You have already sent a trade request</a>
     } else {
