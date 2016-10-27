@@ -6,7 +6,8 @@ RSpec.describe PokeballMailer, type: :mailer do
     let!(:userb) { FactoryGirl.create(:user, username: "PewterGym22") }
     let!(:pokemon) { Pokemon.create(name: "Bulbasaur", sprite: "bulbasaur.gif", pokedex_id: 1, typeA: "poison", typeB: "grass") }
     let!(:pokeball) { Pokeball.create(user: usera, pokemon: pokemon, level: 20, description: "A real good pokemon.") }
-    let!(:mail) { PokeballMailer.pokeball_notification(usera, userb, pokeball).deliver_now }
+    let!(:active_pokeball) { ActivePokeball.create(user: userb, pokeball: pokeball) }
+    let!(:mail) { PokeballMailer.pokeball_notification(usera, userb, pokeball, active_pokeball).deliver_now }
 
     it 'renders the subject' do
       expect(mail.subject).to eq('You have a new trade request!')
