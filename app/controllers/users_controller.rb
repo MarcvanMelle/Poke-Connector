@@ -14,13 +14,13 @@ class UsersController < ApplicationController
     @user_a = Pokeball.find(params[:id]).user
     @user_b = current_user
     @pokeball = Pokeball.find(params[:id])
+    new_trade = ActivePokeball.create(user: @user_b, pokeball: @pokeball)
     if Rails.env.production?
-      PokeballMailer.pokeball_notification(@user_a, @user_b, @pokeball).deliver_now
+      PokeballMailer.pokeball_notification(@user_a, @user_b, @pokeball, new_trade).deliver_now
       flash[:success] = "Trade request sent!"
     else
       flash[:errors] = "Cannot Trade in dev-mode(pokeball)."
     end
-    ActivePokeball.create(user: @user_b, pokeball: @pokeball)
     redirect_to pokeball_path(@pokeball.id)
   end
 
@@ -28,8 +28,9 @@ class UsersController < ApplicationController
     @user_a = Request.find(params[:id]).user
     @user_b = current_user
     @request = Request.find(params[:id])
+    new_trade = ActiveRequest.create(user: @user_b, request: @request)
     if Rails.env.production?
-      RequestMailer.request_notification(@user_a, @user_b, @pokeball).deliver_now
+      RequestMailer.request_notification(@user_a, @user_b, @pokeball, new_trade).deliver_now
       flash[:success] = "Trade request sent!"
     else
       flash[:errors] = "Cannot Trade in dev-mode(request)."
@@ -38,17 +39,6 @@ class UsersController < ApplicationController
     redirect_to request_path(@request.id)
   end
 
-  def accept_trade
-    @user_a = User.find(params[:id])
-    @user_b = current_user
-    if Rails.env.production?
-      AcceptMailer.accept_notification(@user_a, @user_b)
-      flash[:success] = "Trade offer accepted"
-    else
-      flash[:errors] = "Cannot accept trades in dev-mode"
-    end
-    redirect_to root_path
-  end
 
   private
 

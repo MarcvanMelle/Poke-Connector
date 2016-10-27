@@ -9,13 +9,22 @@ Rails.application.routes.draw do
     member do
       get :send_trade_mail
       get :request_trade_mail
-      get :accept_trade
     end
   end
 
   resources :pokemons, only: [:index]
   resources :pokeballs
   resources :requests
+  resources :active_pokeballs, only: [] do
+    member do
+      get :accept_trade
+    end
+  end
+  resources :active_requests, only: [] do
+    member do
+      get :accept_request
+    end
+  end
 
   namespace :api do
     namespace :v1 do
