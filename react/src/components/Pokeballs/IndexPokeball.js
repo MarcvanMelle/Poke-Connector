@@ -106,8 +106,9 @@ class IndexPokeball extends Component {
         </div>
 
         <div className="row search-bar">
-          <div className="columns small-12">
-            <input type="text" onChange={this.handleChange}/>
+          <div className="columns small-12 search">
+            <span className="fa fa-search"></span>
+            <input className="float-center search-input" type="text" onChange={this.handleChange}/>
           </div>
         </div>
         {whomp}

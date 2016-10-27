@@ -13,11 +13,9 @@ class Api::V1::RequestsController < ApplicationController
     pokemon = Pokemon.where("name ILIKE (?)", "%#{params[:getPoke]}%")
     pokemon.each do |poke|
       monster = Request.where(pokemon_id: poke.id)
-      monster.each do |mon|
-        request << mon
-      end
+      request << monster
     end
-    render json: { requests: request }
+    render json: { requests: request.flatten }
   end
 
   def show

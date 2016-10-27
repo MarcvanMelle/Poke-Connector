@@ -75,7 +75,7 @@ class HomePage extends Component {
               <div className="columns small-4 float-left">
                 <strong>Level: </strong>{this.state.pokeball.level}
               </div>
-              <div className="columns small-8 medium-6 float-left row">
+              <div className="columns small-8 medium-8 float-left row">
                 <div className="columns small-4 medium-6 float-left">
                   {hpIV}
                   {atkIV}
@@ -127,7 +127,7 @@ class HomePage extends Component {
                   With over 720 currently available Pokemon, catching them all
                   has really become a significant undertaking. Poke-Connector is here
                   to help. Whether you're new to the game, or a veteran trainer,
-                  Poke-Connector offers you its resources to offer your pokemon and
+                  Poke-Connector provides you its resources to offer your pokemon and
                   place trade requests with your fellow Poke-Masters.
                 </p>
                 <p>

@@ -11,6 +11,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'foundation-rails'
+gem 'font-awesome-rails'
 
 gem 'sidekiq'
 gem 'sidetiq'

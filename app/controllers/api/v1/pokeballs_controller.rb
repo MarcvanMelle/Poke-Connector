@@ -13,11 +13,9 @@ class Api::V1::PokeballsController < ApplicationController
     pokemon = Pokemon.where("name ILIKE (?)", "%#{params[:getPoke]}%")
     pokemon.each do |poke|
       monster = Pokeball.where(pokemon_id: poke.id)
-      monster.each do |mon|
-        pokeball << mon
-      end
+      pokeball << monster
     end
-    render json: { pokeballs: pokeball }
+    render json: { pokeballs: pokeball.flatten }
   end
 
   def show

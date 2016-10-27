@@ -1,4 +1,5 @@
 @import "*";
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
 $light-red: #ffaaaa;
 $dark-red: #e07373;
@@ -15,6 +16,18 @@ $pale-red: #802115;
 $pale-blue: #a0b3bb;
 $white: #ffffff;
 $black: #000000;
+$grey: #d3d3d3;
+
+.search { position: relative; }
+.search input { text-indent: 6%;}
+.search .fa-search {
+  color: $grey;
+  position: absolute;
+  left: 27.10%;
+  top: 15px;
+  font-size: 15px;
+}
+
 
 body {
   background-color: $primary;
@@ -187,9 +200,14 @@ textarea {
   margin: 0;
 }
 
+.search-input {
+  margin-top: 0.3rem;
+  width: 50%;
+}
+
 .search-bar {
   background-color: $pale-orange;
-  height: 2rem;
+  height: 3rem;
   margin-bottom: 2rem;
 }
 
