@@ -5,8 +5,8 @@ feature "User accepts trade request" do
   let!(:user2) { FactoryGirl.create(:user) }
   let!(:bulbasaur) { Pokemon.create(name: "Bulbasaur", sprite: "bulbsaur.gif", pokedex_id: 1, typeA: "poison", typeB: "grass") }
   let!(:ivysaur) { Pokemon.create(name: "Ivysaur", sprite: "ivysaur.gif", pokedex_id: 2, typeA: "poison", typeB: "grass") }
-  let!(:pokeball) { Pokeball.create(user: user2, pokemon: bulbasaur, level: 20, description: "Gotta catch'em all") }
-  let!(:request) { Request.create(user: user1, pokemon: ivysaur, description: "Pokemon!") }
+  let!(:pokeball) { Pokeball.create(user: user1, pokemon: bulbasaur, level: 20, description: "Gotta catch'em all") }
+  let!(:request) { Request.create(user: user2, pokemon: ivysaur, description: "Pokemon!") }
   let!(:active_pokeball) { ActivePokeball.create(user: user2, pokeball: pokeball) }
   let!(:active_request) { ActiveRequest.create(user: user1, request: request) }
 
