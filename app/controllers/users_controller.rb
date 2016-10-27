@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     @user_a = User.find(params[:id])
     @user_b = current_user
     if Rails.env.production?
-      AcceptMailer.accept_notifcation(@user_a, @user_b)
+      AcceptMailer.accept_notification(@user_a, @user_b)
       flash[:success] = "Trade offer accepted"
     else
       flash[:errors] = "Cannot accept trades in dev-mode"
