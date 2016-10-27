@@ -1,4 +1,5 @@
 @import "*";
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
 $light-red: #ffaaaa;
 $dark-red: #e07373;
@@ -15,6 +16,7 @@ $pale-red: #802115;
 $pale-blue: #a0b3bb;
 $white: #ffffff;
 $black: #000000;
+$grey: #d3d3d3;
 
 body {
   background-color: $primary;
@@ -31,12 +33,21 @@ a {
 hr {
   border-color: $burnt-red;
   margin: 0.5rem;
+  margin-left: 0;
   width: 100%;
 }
 
 h1, h2, h3, h4, h5 {
   color: $deep-blue;
   margin-bottom: 0;
+}
+
+h5 {
+  font-size: 0.8rem;
+}
+
+strong {
+  display: inline;
 }
 
 textarea {
@@ -111,6 +122,10 @@ textarea {
   }
 }
 
+.featured {
+  height: 10rem;
+}
+
 .flash-bar {
   background-color: $pale-red;
   border-bottom: 0.5rem solid $burnt-red;
@@ -124,6 +139,7 @@ textarea {
 
 .home-bar {
   background-color: $pale-orange;
+  text-align: center;
 }
 
 .home-barrier {
@@ -150,7 +166,7 @@ textarea {
 }
 
 .pokediv {
-  height: 15rem;
+  // height: 15rem;
   margin: 0.1rem;
   overflow: hidden;
   width: 30%;
@@ -173,9 +189,30 @@ textarea {
   margin: 0;
 }
 
+.search {
+  position: relative;
+
+  .fa-search {
+    color: $grey;
+    font-size: 15px;
+    left: 27.10%;
+    position: absolute;
+    top: 15px;
+  }
+
+  input {
+    text-indent: 6%;
+  }
+}
+
+.search-input {
+  margin-top: 0.3rem;
+  width: 50%;
+}
+
 .search-bar {
   background-color: $pale-orange;
-  height: 2rem;
+  height: 3rem;
   margin-bottom: 2rem;
 }
 

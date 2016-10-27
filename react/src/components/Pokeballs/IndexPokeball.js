@@ -7,9 +7,10 @@ class IndexPokeball extends Component {
     this.state = {
       pokeballs: [],
       users: [],
-      pokemon: []
+      pokemon: [],
+      pokeSearch: ''
     }
-
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
@@ -22,11 +23,27 @@ class IndexPokeball extends Component {
     })
   }
 
+  handleChange(e) {
+    this.setState({ pokeSearch: e.target.value })
+    $.ajax({
+      url: "/api/v1/pokeballs/1/search",
+      type: "GET",
+      data: { getPoke: e.target.value }
+    }).done(data =>{
+      this.setState({ pokeballs: data.pokeballs })
+    })
+  }
+
   render() {
+
+    let whomp
+    if(!this.state.pokeballs[0]){
+      whomp = <div className="row"><div className="columns small-6 small-centered text-center"><h4>Uh oh! No search matches</h4></div></div>
+    }
 
     let allPokeballs = this.state.pokeballs.map(pokeball => {
       let user = $.grep(this.state.users, function(e){ return e.id === pokeball.user_id })[0]
-      let pokemon =  $.grep(this.state.pokemon, function(e){ return e.id === pokeball.pokemon_id })[0]
+      let pokemon = $.grep(this.state.pokemon, function(e){ return e.id === pokeball.pokemon_id })[0]
       let hpIV = <strong>HP: {pokeball.hpIV ? pokeball.hpIV : "?"}</strong>
       let atkIV = <strong>Atk: {pokeball.attIV ? pokeball.attIV : "?"}</strong>
       let defIV = <strong>Def: {pokeball.defIV ? pokeball.defIV : "?"}</strong>
@@ -40,11 +57,10 @@ class IndexPokeball extends Component {
       }
       let typeA = <img src={"/assets/types/" + pokemon.typeA + ".png"}/>
 
-
       return(
         <div className="row">
           <div id={`offer${pokeball.id}`} className="text-center columns small-3 pokediv">
-            <h5>{user.username}s {pokemon.name}</h5><hr/>
+            <h5>{user.username}'s {pokemon.name}</h5><hr/>
             <Link to={`pokeballs/${pokeball.id}`} id={`poke-link${pokeball.id}`}><img className="poke-sprite" src={`/assets/${pokemon.sprite}`}/></Link>
           </div>
           <div id={`offer-detail${pokeball.id}`} className="columns small-8 float-left">
@@ -78,7 +94,7 @@ class IndexPokeball extends Component {
 
     return(
       <div>
-        <div className="row page-head">
+        <div className="row page-head text-center">
           <div className="columns small-12">
             <h1>All Current Trade Offers</h1>
           </div>
@@ -90,10 +106,12 @@ class IndexPokeball extends Component {
         </div>
 
         <div className="row search-bar">
-          <div className="columns small-12">
-
+          <div className="columns small-12 search">
+            <span className="fa fa-search"></span>
+            <input className="float-center search-input" type="text" onChange={this.handleChange}/>
           </div>
         </div>
+        {whomp}
         {allPokeballs}
       </div>
     )

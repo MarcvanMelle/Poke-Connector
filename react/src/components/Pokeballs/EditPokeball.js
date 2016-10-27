@@ -88,7 +88,7 @@ class EditPokeball extends Component {
 
     return(
       <div>
-        <div className="row page-head">
+        <div className="row page-head text-center">
           <div className="columns small-12">
             <h1>Change Your Pokemon Offer</h1>
           </div>

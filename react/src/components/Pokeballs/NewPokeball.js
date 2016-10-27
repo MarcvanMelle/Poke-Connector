@@ -89,9 +89,11 @@ class NewPokeball extends Component {
       );
     });
 
+    selectOptions.unshift(<option value="">Choose a Pokemon</option>)
+
     return (
       <div>
-        <div className="row page-head">
+        <div className="row page-head text-center">
           <div className="columns small-12">
             <h1>Offer a new Pokemon</h1>
           </div>
@@ -121,9 +123,8 @@ class NewPokeball extends Component {
 
           <div className="row">
             <div className="field columns small-4 float-left">
-              <label className="inline">Level:</label>
-              <em>(1-100)</em>
-              <input name="level" onChange={this.handleFieldChange} type="number"/>
+              <label>Level:</label>
+              <input name="level" placeholder="1-100" onChange={this.handleFieldChange} type="number"/>
             </div>
           </div>
 
@@ -137,40 +138,34 @@ class NewPokeball extends Component {
           <div className="row">
             <div className="field columns small-4 float-left">
               <label className="inline">HP IV:</label>
-              <em>(0-31)</em>
-              <input name="hp" onChange={this.handleFieldChange} type="number"/>
+              <input name="hp" placeholder="0-31" onChange={this.handleFieldChange} type="number"/>
             </div>
 
             <div className="field columns small-4 float-left">
               <label className="inline">Atk IV:</label>
-              <em>(0-31)</em>
-              <input name="atk" onChange={this.handleFieldChange} type="number"/>
+              <input name="atk" placeholder="0-31" onChange={this.handleFieldChange} type="number"/>
             </div>
 
             <div className="field columns small-4 float-left">
               <label className="inline">Def IV:</label>
-              <em>(0-31)</em>
-              <input name="def" onChange={this.handleFieldChange} type="number"/>
+              <input name="def" placeholder="0-31" onChange={this.handleFieldChange} type="number"/>
             </div>
           </div>
 
           <div className="row">
             <div className="field columns small-4 float-left">
               <label className="inline">SpA IV:</label>
-              <em>(0-31)</em>
-              <input name ="spa" onChange={this.handleFieldChange} type="number"/>
+              <input name ="spa" placeholder="0-31" onChange={this.handleFieldChange} type="number"/>
             </div>
 
             <div className="field columns small-4 float-left">
               <label className="inline">SpD IV:</label>
-              <em>(0-31)</em>
-              <input name="spd" onChange={this.handleFieldChange} type="number"/>
+              <input name="spd" placeholder="0-31" onChange={this.handleFieldChange} type="number"/>
             </div>
 
             <div className="field columns small-4 float-left">
               <label className="inline">Spe IV:</label>
-              <em>(0-31)</em>
-              <input name="spe" onChange={this.handleFieldChange} type="number"/>
+              <input name="spe" placeholder="0-31" onChange={this.handleFieldChange} type="number"/>
             </div>
           </div>
 
