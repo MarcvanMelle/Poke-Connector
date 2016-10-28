@@ -1,30 +1,18 @@
 [ ![Codeship Status for MarcvanMelle/Poke-Connector](https://app.codeship.com/projects/96ea1a30-76ab-0134-3da1-4269843b54e0/status?branch=master)](https://app.codeship.com/projects/179634)
-[![Code Climate](https://codeclimate.com/github/MarcvanMelle/Poke-Connector/badges/gpa.svg)](https://codeclimate.com/github/MarcvanMelle/Poke-Connector)
-[![Coverage Status](https://coveralls.io/repos/github/MarcvanMelle/Poke-Connector/badge.svg?branch=master)](https://coveralls.io/github/MarcvanMelle/Poke-Connector?branch=master)
 
-# README
+# Poke-Connector Read Me
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Ruby Version 2.3.1
 
-Things you may want to cover:
+### Heroku Requirements
 
-* Ruby version
+Poke-Connector requires a google account and password for config variables.
+It will also require a Redis Server to maintain Sidekiq and Sidetiq background jobs.
 
-* System dependencies
+### Database
+Poke-Connector uses a postgreSQL databse. To build the database first create and migrate. Running the seed through `rails db:seed` takes some patience, as the pokeapi.co api times-out after about 200 Pokemon, and so will require several iterations, manually setting up the start point on the iterator in the seeds.rb.
 
-* Configuration
+Also, attempting to seed in production is unstable, so it is recommended to `heroku pg:push <development-database> DATABASE_URL` in order to get the Pokemon table into production.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# Poke Connector
-Your app description, here.
+### Tests
+Currently all tests are run using rspec and capybara. Running `rake` will execute all tests.
