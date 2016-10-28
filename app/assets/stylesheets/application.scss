@@ -135,6 +135,8 @@ textarea {
 
 .footer {
   background-color: $orange;
+  color: $grey;
+  font-size: 0.25rem;
   height: 5rem;
 }
 
@@ -154,6 +156,10 @@ textarea {
 
 .inline {
   display: inline;
+}
+
+.logo {
+  width: 8rem;
 }
 
 .nav-bar {

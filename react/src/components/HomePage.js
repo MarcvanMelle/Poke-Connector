@@ -125,9 +125,9 @@ class HomePage extends Component {
               <div className="columns small-11">
                 <p>
                   With over 720 currently available Pokemon, catching them all
-                  has really become a significant undertaking. Poke-Connector is here
+                  has become a significant undertaking. Poke-Connector is here
                   to help. Whether you're new to the game, or a veteran trainer,
-                  Poke-Connector provides you its resources to offer your pokemon and
+                  Poke-Connector provides you the resources to offer your Pokemon and
                   place trade requests with your fellow Poke-Masters.
                 </p>
                 <p>
@@ -139,17 +139,15 @@ class HomePage extends Component {
         </div>
         <div className="row">
           <div className="columns small-10 small-centered">
-            <hr/>
           </div>
         </div>
         <div className="row">
-          <div className="columns small-8 small-centered">
-            <h3>News</h3>
+          <div className="columns small-8 small-centered" id="News will go here eventually">
+            <h3></h3>
           </div>
         </div>
         <div className="row">
           <div className="columns small-10 small-centered">
-            <hr/>
           </div>
         </div>
       </div>

@@ -83,7 +83,7 @@ class UserShow extends Component {
       <div>
         <div className="row page-head text-center">
           <div className="columns small-12">
-            <h1>{this.state.owner.username}s Profile</h1>
+            <h1>{this.state.owner.username}'s Profile</h1>
           </div>
         </div>
         <div className="row button-row">

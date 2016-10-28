@@ -78,7 +78,7 @@ class ShowPokeball extends Component {
     return (
       <div>
         <div className="row page-head text-center">
-          <div className="columns small-8">
+          <div className="columns small-12">
             <h2>{this.state.owner.username}'s Trade Offer for {this.state.pokemon.name}</h2>
           </div>
         </div>
