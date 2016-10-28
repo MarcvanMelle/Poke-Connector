@@ -55,14 +55,14 @@ class Api::V1::RequestsController < ApplicationController
   end
 
   def update
-    @request = Request.find(params[:id])
-    if @request.user == current_user
-      if @request.update(update_params)
+    request = Request.find(params[:id])
+    if request.user == current_user
+      if request.update(update_params)
         flash[:success] = "Request successfully updated!"
-        redirect_to request_path(@request.id)
+        render json: { path: "/requests/#{request.id}" }
       else
-        flash[:errors] = @request.errors.full_messages.join(", ")
-        render action: :edit
+        flash[:errors] = request.errors.full_messages.join(", ")
+        render json: { errors: flash[:errors], request: request, pokemon: request.pokemon }
       end
     end
   end
