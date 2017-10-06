@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<%= form_for :pokeballs, method: :post, url: pokeballs_path do |f| %>
+<%= form_for @pokeball, as: :pokeball, validate: true, method: :post, url: pokeballs_path do |f| %>
 
   <div class="row">
     <div class="columns small-7">
@@ -35,7 +35,7 @@
 
   <div class="row">
     <div class="field columns small-7">
-      <%= f.label :description %>
+      <%= f.label :description, class: 'inline' %>
       <%= f.text_area :description %>
     </div>
   </div>
