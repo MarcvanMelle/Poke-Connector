@@ -13,4 +13,6 @@ class Pokeball < ApplicationRecord
   validates :spaIV, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 31 }, allow_blank: true
   validates :spdIV, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 31 }, allow_blank: true
   validates :speIV, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 31 }, allow_blank: true
+
+  scope :expired, -> { where: 'created_at < ?', Time.zone.now - 7.days }
 end
