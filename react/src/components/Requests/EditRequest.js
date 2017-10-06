@@ -8,8 +8,8 @@ class EditRequest extends Component {
       pokemon: {},
       request: {},
       description: ''
-    }
-    this.handleFieldChange = this.handleFieldChange.bind(this)
+    };
+    this.handleFieldChange = this.handleFieldChange.bind(this);
     this.handleRequestSubmission = this.handleRequestSubmission.bind(this)
   }
 
@@ -35,7 +35,7 @@ class EditRequest extends Component {
 
   handleRequestSubmission(e) {
     e.preventDefault();
-    let _this = this
+    let _this = this;
     $.ajax({
       url: '/api/v1/requests/' + _this.state.request.id,
       type: 'PATCH',
@@ -112,6 +112,6 @@ class EditRequest extends Component {
 
 EditRequest.contextTypes = {
   router: React.PropTypes.object.isRequired
-}
+};
 
 export default EditRequest

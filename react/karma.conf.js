@@ -1,4 +1,4 @@
-var path = require('path');
+const path = require('path');
 
 module.exports = function(config) {
   config.set({
@@ -90,4 +90,4 @@ module.exports = function(config) {
       type: 'html'
     }
   })
-}
+};

@@ -31,12 +31,12 @@ class UserShow extends Component {
   render() {
 
     $("#not-app").hide();
-    let editProfile
+    let editProfile;
 
     let pokeballs = this.state.pokeballs.map((pokeball, index) => {
-      let pokemon = $.grep(this.state.pokemon, function(e){ return e.id === pokeball.pokemon_id })[0]
+      let pokemon = $.grep(this.state.pokemon, function(e){ return e.id === pokeball.pokemon_id })[0];
 
-      let lineBreak
+      let lineBreak;
       if(index % 3 == 2){
         lineBreak = <div className="columns small-12"><hr/></div>
       }
@@ -52,12 +52,12 @@ class UserShow extends Component {
           {lineBreak}
         </div>
       )
-    })
+    });
 
     let requests = this.state.requests.map((request, index) => {
-      let pokemon = $.grep(this.state.pokemon, function(e){ return e.id === request.pokemon_id })[0]
+      let pokemon = $.grep(this.state.pokemon, function(e){ return e.id === request.pokemon_id })[0];
 
-      let lineBreak
+      let lineBreak;
       if(index % 3 == 2){
         lineBreak = <div className="columns small-12"><hr/></div>
       }
@@ -73,7 +73,7 @@ class UserShow extends Component {
           {lineBreak}
         </div>
       )
-    })
+    });
 
     if(this.state.owner.id == this.state.user.id) {
       editProfile = <a href="/users/edit" className="button">Edit Profile</a>

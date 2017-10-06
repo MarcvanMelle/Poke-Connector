@@ -10,15 +10,15 @@ class HomePage extends Component {
       pokeball: null,
       pokemon: [],
       users: []
-    }
-    this.handleClearTimer = this.handleClearTimer.bind(this)
+    };
+    this.handleClearTimer = this.handleClearTimer.bind(this);
     this.timer = this.timer.bind(this)
   }
 
   componentDidMount() {
     $("#not-app").hide();
 
-    this.setState({ intervalId: setInterval(this.timer, 2000) })
+    this.setState({ intervalId: setInterval(this.timer, 2000) });
 
     $.ajax({
       url: "/api/v1/pokeballs"
@@ -27,7 +27,7 @@ class HomePage extends Component {
         pokeballs: data.pokeballs,
         pokemon: data.pokemon,
         users: data.users
-      })
+      });
       this.setState({
         pokeball: this.state.pokeballs[0]
       })
@@ -43,24 +43,24 @@ class HomePage extends Component {
   }
 
   timer() {
-    let rand = Math.floor(Math.random() * this.state.pokeballs.length)
+    let rand = Math.floor(Math.random() * this.state.pokeballs.length);
     this.setState({ pokeball: this.state.pokeballs[rand] })
   }
 
   render() {
-    let homepage, pokemon, owner, offer
+    let homepage, pokemon, owner, offer;
     if(this.state.pokeball){
-      offer = this.state.pokeball
-      pokemon = this.state.pokemon[offer.pokemon_id - 1]
+      offer = this.state.pokeball;
+      pokemon = this.state.pokemon[offer.pokemon_id - 1];
       owner = $.grep(this.state.users, function(e){ return e.id === offer.user_id })[0]
     }
     if(location.pathname == "/" && pokemon){
-      let hpIV = <div><strong>HP: </strong>{this.state.pokeball.hpIV ? this.state.pokeball.hpIV : "?"}</div>
-      let atkIV = <div><strong>Atk: </strong>{this.state.pokeball.attIV ? this.state.pokeball.attIV : "?"}</div>
-      let defIV = <div><strong>Def: </strong>{this.state.pokeball.defIV ? this.state.pokeball.defIV : "?"}</div>
-      let spaIV = <div><strong>SpA: </strong>{this.state.pokeball.spaIV ? this.state.pokeball.spaIV : "?"}</div>
-      let spdIV = <div><strong>SpD: </strong>{this.state.pokeball.spdIV ? this.state.pokeball.spdIV : "?"}</div>
-      let speIV = <div><strong>Spe: </strong>{this.state.pokeball.speIV ? this.state.pokeball.speIV : "?"}</div>
+      let hpIV = <div><strong>HP: </strong>{this.state.pokeball.hpIV ? this.state.pokeball.hpIV : "?"}</div>;
+      let atkIV = <div><strong>Atk: </strong>{this.state.pokeball.attIV ? this.state.pokeball.attIV : "?"}</div>;
+      let defIV = <div><strong>Def: </strong>{this.state.pokeball.defIV ? this.state.pokeball.defIV : "?"}</div>;
+      let spaIV = <div><strong>SpA: </strong>{this.state.pokeball.spaIV ? this.state.pokeball.spaIV : "?"}</div>;
+      let spdIV = <div><strong>SpD: </strong>{this.state.pokeball.spdIV ? this.state.pokeball.spdIV : "?"}</div>;
+      let speIV = <div><strong>Spe: </strong>{this.state.pokeball.speIV ? this.state.pokeball.speIV : "?"}</div>;
       homepage = (
         <div>
           <h4 className="text-center">Featured Pokemon:</h4>
@@ -157,6 +157,6 @@ class HomePage extends Component {
 
 HomePage.contextTypes = {
   router: React.PropTypes.object.isRequired
-}
+};
 
 export default HomePage

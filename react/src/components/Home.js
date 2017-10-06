@@ -6,7 +6,7 @@ class Home extends Component {
     super(props);
     this.state = {
       user: null,
-    }
+    };
     this.handleLogOut = this.handleLogOut.bind(this)
   }
 
@@ -20,26 +20,26 @@ class Home extends Component {
 
   handleLogOut(e) {
     e.preventDefault();
-    let _this = this
+    let _this = this;
     $.ajax({
       url: "/users/sign_out",
       type: "DELETE",
       success: function(){
-        _this.context.router.push("/")
+        _this.context.router.push("/");
         location.reload();
       }
     })
   }
 
   render() {
-    let currentUser, myProfile, logOut, signUp, logIn, forgotPW
+    let currentUser, myProfile, logOut, signUp, logIn, forgotPW;
     if (this.state.user) {
-      currentUser = <h5 className="text-right">Signed in as {this.state.user.username}</h5>
-      myProfile = <h5 className="text-right"><Link to={`/users/${this.state.user.id}`}>My Profile</Link></h5>
+      currentUser = <h5 className="text-right">Signed in as {this.state.user.username}</h5>;
+      myProfile = <h5 className="text-right"><Link to={`/users/${this.state.user.id}`}>My Profile</Link></h5>;
       logOut = <h5 className="text-right"><a href="/users/sign_out" onClick={this.handleLogOut}>Log Out</a></h5>
     } else {
-      signUp = <h5 className="text-right"><Link to="/users/sign_up">Sign Up</Link></h5>
-      logIn = <h5 className="text-right"><Link to="/users/sign_in">Log In</Link></h5>
+      signUp = <h5 className="text-right"><Link to="/users/sign_up">Sign Up</Link></h5>;
+      logIn = <h5 className="text-right"><Link to="/users/sign_in">Log In</Link></h5>;
       forgotPW = <h5 className="text-right"><a href="/users/password/new">Forgot your password?</a></h5>
     }
 
@@ -74,6 +74,6 @@ class Home extends Component {
 
 Home.contextTypes = {
   router: React.PropTypes.object.isRequired
-}
+};
 
 export default Home

@@ -12,8 +12,8 @@ class UserSignUp extends Component {
       password: '',
       password_confirmation: '',
       friend_code: ''
-    }
-    this.handleFieldChange = this.handleFieldChange.bind(this)
+    };
+    this.handleFieldChange = this.handleFieldChange.bind(this);
     this.handleRegistrationSubmit = this.handleRegistrationSubmit.bind(this)
   }
 
@@ -25,7 +25,7 @@ class UserSignUp extends Component {
 
   handleRegistrationSubmit(e) {
     e.preventDefault();
-    let _this = this
+    let _this = this;
     $.ajax({
       url: "/api/v1/users",
       type: "POST",
@@ -44,7 +44,7 @@ class UserSignUp extends Component {
           $(window).scrollTop(0);
           _this.setState({ errors: data.errors });
         } else {
-          _this.context.router.push(data.path)
+          _this.context.router.push(data.path);
           location.reload();
         }
       }
@@ -147,6 +147,6 @@ class UserSignUp extends Component {
 
 UserSignUp.contextTypes = {
   router: React.PropTypes.object.isRequired
-}
+};
 
 export default UserSignUp

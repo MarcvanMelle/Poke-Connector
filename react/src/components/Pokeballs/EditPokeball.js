@@ -15,8 +15,8 @@ class EditPokeball extends Component {
       spaIV: '',
       spdIV: '',
       speIV: ''
-    }
-    this.handleFieldChange = this.handleFieldChange.bind(this)
+    };
+    this.handleFieldChange = this.handleFieldChange.bind(this);
     this.handlePokeballSubmission = this.handlePokeballSubmission.bind(this)
   }
 
@@ -49,7 +49,7 @@ class EditPokeball extends Component {
 
   handlePokeballSubmission(e) {
     e.preventDefault();
-    let _this = this
+    let _this = this;
     $.ajax({
       url: '/api/v1/pokeballs/' + _this.state.pokeball.id,
       type: 'PATCH',
@@ -181,6 +181,6 @@ class EditPokeball extends Component {
 
 EditPokeball.contextTypes = {
   router: React.PropTypes.object.isRequired
-}
+};
 
 export default EditPokeball
