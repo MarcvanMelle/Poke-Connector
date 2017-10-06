@@ -9,7 +9,7 @@ class IndexRequest extends Component {
       users: [],
       pokemon: [],
       pokeSearch: ''
-    }
+    };
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -24,7 +24,7 @@ class IndexRequest extends Component {
   }
 
   handleChange(e) {
-    this.setState({ pokeSearch: e.target.value })
+    this.setState({ pokeSearch: e.target.value });
     $.ajax({
       url: "/api/v1/requests/1/search",
       type: "GET",
@@ -35,20 +35,20 @@ class IndexRequest extends Component {
   }
 
   render() {
-    let whomp
+    let whomp;
     if(!this.state.requests[0]){
       whomp = <div className="row"><div className="columns small-6 small-centered text-center"><h4>Uh oh! No search matches</h4></div></div>
     }
 
     let allRequests = this.state.requests.map(request => {
-      let user = $.grep(this.state.users, function(e){ return e.id === request.user_id })[0]
-      let pokemon =  $.grep(this.state.pokemon, function(e){ return e.id === request.pokemon_id })[0]
+      let user = $.grep(this.state.users, function(e){ return e.id === request.user_id })[0];
+      let pokemon =  $.grep(this.state.pokemon, function(e){ return e.id === request.pokemon_id })[0];
 
-      let typeB
+      let typeB;
       if(pokemon.typeB) {
         typeB = <img src={"/assets/types/" + pokemon.typeB + ".png"}/>
       }
-      let typeA = <img src={"/assets/types/" + pokemon.typeA + ".png"}/>
+      let typeA = <img src={"/assets/types/" + pokemon.typeA + ".png"}/>;
 
 
       return(
@@ -69,7 +69,7 @@ class IndexRequest extends Component {
           </div>
         </div>
       )
-    })
+    });
 
     return(
       <div>

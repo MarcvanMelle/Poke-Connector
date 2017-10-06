@@ -10,7 +10,7 @@ class ShowRequest extends Component {
       owner: {},
       user: {},
       active: {}
-    }
+    };
     this.handleRequestDeletion = this.handleRequestDeletion.bind(this)
   }
 
@@ -25,7 +25,7 @@ class ShowRequest extends Component {
         pokemon: data.pokemon,
         request: data.request,
         owner: data.owner
-      })
+      });
       if (data.active) {
         this.setState({ active: data.active })
       }
@@ -37,7 +37,7 @@ class ShowRequest extends Component {
 
   handleRequestDeletion(e) {
     e.preventDefault();
-    let _this = this
+    let _this = this;
     $.ajax({
       url: '/api/v1/requests/' + this.props.params.requestId,
       type: 'DELETE',
@@ -50,12 +50,12 @@ class ShowRequest extends Component {
 
   render() {
     debugger;
-    let editButton
-    let deleteButton
-    let tradeButton
+    let editButton;
+    let deleteButton;
+    let tradeButton;
     if(this.state.owner.id == this.state.user.id){
-      editButton = <Link to={`/requests/${this.state.request.id}/edit`} className="button">Edit Request</Link>
-      deleteButton = <Link to="/" className="button" onClick={this.handleRequestDeletion}>Delete Request</Link>
+      editButton = <Link to={`/requests/${this.state.request.id}/edit`} className="button">Edit Request</Link>;
+      deleteButton = <Link to="/" className="button" onClick={this.handleRequestDeletion}>Delete Request</Link>;
       tradeButton = <a className="button disabled">You cannot request to trade with yourself</a>
     } else if(this.state.user.id == null) {
       tradeButton = <Link to="/users/sign_in" className="button">You must be logged in to request a trade</Link>
@@ -65,11 +65,11 @@ class ShowRequest extends Component {
       tradeButton = <a href={`/users/${this.state.request.id}/request_trade_mail`} className="button">Send A Trade Request</a>
     }
 
-    let typeB
+    let typeB;
     if(this.state.pokemon.typeB) {
       typeB = <img src={"/assets/types/" + this.state.pokemon.typeB + ".png"}/>
     }
-    let typeA = <img src={"/assets/types/" + this.state.pokemon.typeA + ".png"}/>
+    let typeA = <img src={"/assets/types/" + this.state.pokemon.typeA + ".png"}/>;
 
     return (
       <div>
@@ -110,6 +110,6 @@ class ShowRequest extends Component {
 
 ShowRequest.contextTypes = {
   router: React.PropTypes.object.isRequired
-}
+};
 
 export default ShowRequest

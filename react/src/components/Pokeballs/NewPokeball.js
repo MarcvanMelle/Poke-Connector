@@ -15,7 +15,7 @@ class NewPokeball extends Component {
       spa: '',
       spd: '',
       spe: ''
-    }
+    };
     this.handleFieldChange = this.handleFieldChange.bind(this);
     this.handlePokeballSubmission = this.handlePokeballSubmission.bind(this)
   }
@@ -23,7 +23,7 @@ class NewPokeball extends Component {
   componentDidMount() {
     $("#not-app").hide();
 
-    let _this = this
+    let _this = this;
 
     $.ajax({
       url: '/api/v1/pokeballs/new',
@@ -45,7 +45,7 @@ class NewPokeball extends Component {
 
   handlePokeballSubmission(e) {
     e.preventDefault();
-    let _this = this
+    let _this = this;
     $.ajax({
       url: '/api/v1/pokeballs/',
       type: 'POST',
@@ -89,7 +89,7 @@ class NewPokeball extends Component {
       );
     });
 
-    selectOptions.unshift(<option value="">Choose a Pokemon</option>)
+    selectOptions.unshift(<option value="">Choose a Pokemon</option>);
 
     return (
       <div>
@@ -182,6 +182,6 @@ class NewPokeball extends Component {
 
 NewPokeball.contextTypes = {
   router: React.PropTypes.object.isRequired
-}
+};
 
 export default NewPokeball

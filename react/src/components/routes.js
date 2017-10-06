@@ -31,4 +31,4 @@ module.exports = (
     <Route path="/users/edit"/>
     <Route path="/users/:userId" component={UserShow}/>
   </Route>
-)
+);

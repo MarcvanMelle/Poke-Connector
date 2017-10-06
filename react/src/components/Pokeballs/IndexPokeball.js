@@ -9,7 +9,7 @@ class IndexPokeball extends Component {
       users: [],
       pokemon: [],
       pokeSearch: ''
-    }
+    };
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -24,7 +24,7 @@ class IndexPokeball extends Component {
   }
 
   handleChange(e) {
-    this.setState({ pokeSearch: e.target.value })
+    this.setState({ pokeSearch: e.target.value });
     $.ajax({
       url: "/api/v1/pokeballs/1/search",
       type: "GET",
@@ -36,26 +36,26 @@ class IndexPokeball extends Component {
 
   render() {
 
-    let whomp
+    let whomp;
     if(!this.state.pokeballs[0]){
       whomp = <div className="row"><div className="columns small-6 small-centered text-center"><h4>Uh oh! No search matches</h4></div></div>
     }
 
     let allPokeballs = this.state.pokeballs.map(pokeball => {
-      let user = $.grep(this.state.users, function(e){ return e.id === pokeball.user_id })[0]
-      let pokemon = $.grep(this.state.pokemon, function(e){ return e.id === pokeball.pokemon_id })[0]
-      let hpIV = <strong>HP: {pokeball.hpIV ? pokeball.hpIV : "?"}</strong>
-      let atkIV = <strong>Atk: {pokeball.attIV ? pokeball.attIV : "?"}</strong>
-      let defIV = <strong>Def: {pokeball.defIV ? pokeball.defIV : "?"}</strong>
-      let spaIV = <strong>SpA: {pokeball.spaIV ? pokeball.spaIV : "?"}</strong>
-      let spdIV = <strong>SpD: {pokeball.spdIV ? pokeball.spdIV : "?"}</strong>
-      let speIV = <strong>Spe: {pokeball.speIV ? pokeball.speIV : "?"}</strong>
+      let user = $.grep(this.state.users, function(e){ return e.id === pokeball.user_id })[0];
+      let pokemon = $.grep(this.state.pokemon, function(e){ return e.id === pokeball.pokemon_id })[0];
+      let hpIV = <strong>HP: {pokeball.hpIV ? pokeball.hpIV : "?"}</strong>;
+      let atkIV = <strong>Atk: {pokeball.attIV ? pokeball.attIV : "?"}</strong>;
+      let defIV = <strong>Def: {pokeball.defIV ? pokeball.defIV : "?"}</strong>;
+      let spaIV = <strong>SpA: {pokeball.spaIV ? pokeball.spaIV : "?"}</strong>;
+      let spdIV = <strong>SpD: {pokeball.spdIV ? pokeball.spdIV : "?"}</strong>;
+      let speIV = <strong>Spe: {pokeball.speIV ? pokeball.speIV : "?"}</strong>;
 
-      let typeB
+      let typeB;
       if(pokemon.typeB) {
         typeB = <img src={"/assets/types/" + pokemon.typeB + ".png"}/>
       }
-      let typeA = <img src={"/assets/types/" + pokemon.typeA + ".png"}/>
+      let typeA = <img src={"/assets/types/" + pokemon.typeA + ".png"}/>;
 
       return(
         <div className="row">
@@ -90,7 +90,7 @@ class IndexPokeball extends Component {
           </div>
         </div>
       )
-    })
+    });
 
     return(
       <div>

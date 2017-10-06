@@ -9,7 +9,7 @@ class NewRequest extends Component {
       selectedPokemon: '',
       level: 0,
       desc: ''
-    }
+    };
     this.handleFieldChange = this.handleFieldChange.bind(this);
     this.handleRequestSubmission = this.handleRequestSubmission.bind(this)
   }
@@ -17,7 +17,7 @@ class NewRequest extends Component {
   componentDidMount() {
     $("#not-app").hide();
 
-    let _this = this
+    let _this = this;
 
     $.ajax({
       url: '/api/v1/requests/new',
@@ -39,7 +39,7 @@ class NewRequest extends Component {
 
   handleRequestSubmission(e) {
     e.preventDefault();
-    let _this = this
+    let _this = this;
     $.ajax({
       url: '/api/v1/requests/',
       type: 'POST',
@@ -76,7 +76,7 @@ class NewRequest extends Component {
       );
     });
 
-    selectOptions.unshift(<option value="">Choose a Pokemon</option>)
+    selectOptions.unshift(<option value="">Choose a Pokemon</option>);
 
     return (
       <div>
@@ -128,6 +128,6 @@ class NewRequest extends Component {
 
 NewRequest.contextTypes = {
   router: React.PropTypes.object.isRequired
-}
+};
 
 export default NewRequest
