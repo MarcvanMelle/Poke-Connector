@@ -6,5 +6,5 @@ class Request < ApplicationRecord
 
   validates :description, presence: true
 
-  scope :expired, -> { where: 'created_at < ?', Time.zone.now - 7.days }
+  scope :expired, -> { where('created_at < ?', Time.zone.now - 7.days) }
 end

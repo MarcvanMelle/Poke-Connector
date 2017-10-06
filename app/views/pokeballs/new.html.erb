@@ -25,7 +25,13 @@
       <em>(1-100)</em>
       <%= f.number_field :level %>
     </div>
+
+    <div class="field columns small-3 float-left">
+      <%= f.label :gender, class: "inline" %>
+      <%= f.select :gender, options_for_select(Pokemon::GENDERS), prompt: '-- Select a Gender' %>
+    </div>
   </div>
+
 
   <div class="row">
     <div class="field columns small-7">

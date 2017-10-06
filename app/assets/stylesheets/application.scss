@@ -165,6 +165,12 @@ textarea {
 .nav-bar {
   background-color: $orange;
   border-bottom: 0.5rem solid $burnt-red;
+
+  img {
+    display: inline;
+    float: left;
+    width: 15rem;
+  }
 }
 
 .page-head {

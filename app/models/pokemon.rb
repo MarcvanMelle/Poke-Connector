@@ -1,4 +1,6 @@
 class Pokemon < ApplicationRecord
+  GENDERS = %w[Male Female Genderless]
+
   has_many :pokeballs
   has_many :requests
 
