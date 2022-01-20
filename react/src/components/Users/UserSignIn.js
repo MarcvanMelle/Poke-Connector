@@ -8,8 +8,8 @@ class UserSignIn extends Component {
       email: '',
       password: '',
       remember_me: 'off'
-    }
-    this.handleFieldChange = this.handleFieldChange.bind(this)
+    };
+    this.handleFieldChange = this.handleFieldChange.bind(this);
     this.handleRegistrationSubmit = this.handleRegistrationSubmit.bind(this)
   }
 
@@ -21,7 +21,7 @@ class UserSignIn extends Component {
 
   handleRegistrationSubmit(e) {
     e.preventDefault();
-    let _this = this
+    let _this = this;
     $.ajax({
       url: "/users/sign_in",
       type: "POST",
@@ -31,7 +31,7 @@ class UserSignIn extends Component {
         }
       },
       success: function() {
-        _this.context.router.push("/")
+        _this.context.router.push("/");
         location.reload();
       },
       error: function() {
@@ -112,6 +112,6 @@ class UserSignIn extends Component {
 
 UserSignIn.contextTypes = {
   router: React.PropTypes.object.isRequired
-}
+};
 
 export default UserSignIn

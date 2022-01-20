@@ -5,4 +5,6 @@ class Request < ApplicationRecord
   has_many :users, through: :active_requests
 
   validates :description, presence: true
+
+  scope :expired, -> { where('created_at < ?', Time.zone.now - 7.days) }
 end

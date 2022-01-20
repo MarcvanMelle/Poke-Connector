@@ -82,10 +82,6 @@ class PokeballsController < ApplicationController
   end
 
   def pokemon_names
-    @pokemon = []
-    Pokemon.order(id: :asc).each do |pokemon|
-      @pokemon << pokemon.name
-    end
-    @pokemon
+    @_pokenames ||= Pokemon.pluck(:name)
   end
 end

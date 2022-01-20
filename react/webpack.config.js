@@ -1,4 +1,4 @@
-var config = {
+const config = {
   entry: {
     path: './react/src/main.js',
   },
@@ -16,12 +16,12 @@ var config = {
     ]
   },
   devtool: 'eval-source-map'
-}
+};
 
 if (process.env.NODE_ENV === 'production') {
   delete config.devtool;
-  var webpack = require('webpack');
-  config.plugins = [
+    const webpack = require('webpack');
+    config.plugins = [
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' })
   ];
 }

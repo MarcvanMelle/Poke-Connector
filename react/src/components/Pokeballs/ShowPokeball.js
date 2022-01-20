@@ -10,7 +10,7 @@ class ShowPokeball extends Component {
       owner: {},
       user: {},
       active: {}
-    }
+    };
     this.handlePokeballDeletion = this.handlePokeballDeletion.bind(this)
   }
 
@@ -24,7 +24,7 @@ class ShowPokeball extends Component {
         pokemon: data.pokemon,
         pokeball: data.pokeball,
         owner: data.owner
-      })
+      });
       if (data.active) {
         this.setState({ active: data.active })
       }
@@ -36,7 +36,7 @@ class ShowPokeball extends Component {
 
   handlePokeballDeletion(e) {
     e.preventDefault();
-    let _this = this
+    let _this = this;
     $.ajax({
       url: '/api/v1/pokeballs/' + this.props.params.pokeballId,
       type: 'DELETE',
@@ -48,12 +48,12 @@ class ShowPokeball extends Component {
 
   render() {
 
-    let editButton
-    let deleteButton
-    let tradeButton
+    let editButton;
+    let deleteButton;
+    let tradeButton;
     if(this.state.owner.id == this.state.user.id){
-      editButton = <Link to={`/pokeballs/${this.state.pokeball.id}/edit`} className="button">Edit Offer</Link>
-      deleteButton = <Link to='/' className="button" onClick={this.handlePokeballDeletion}>Delete Offer</Link>
+      editButton = <Link to={`/pokeballs/${this.state.pokeball.id}/edit`} className="button">Edit Offer</Link>;
+      deleteButton = <Link to='/' className="button" onClick={this.handlePokeballDeletion}>Delete Offer</Link>;
       tradeButton = <a className="button disabled">You cannot request to trade with yourself</a>
     } else if(this.state.user.id == null) {
       tradeButton = <Link to="/users/sign_in" className="button">You must be logged in to request a trade</Link>
@@ -63,17 +63,17 @@ class ShowPokeball extends Component {
       tradeButton = <a href={`/users/${this.state.pokeball.id}/send_trade_mail`} className="button">Send A Trade Request</a>
     }
 
-    let typeB
+    let typeB;
     if(this.state.pokemon.typeB) {
       typeB = <img src={"/assets/types/" + this.state.pokemon.typeB + ".png"}/>
     }
-    let typeA = <img src={"/assets/types/" + this.state.pokemon.typeA + ".png"}/>
-    let hpIV = <strong>HP: {this.state.pokeball.hpIV ? this.state.pokeball.hpIV : "?"}</strong>
-    let atkIV = <strong>Atk: {this.state.pokeball.attIV ? this.state.pokeball.attIV : "?"}</strong>
-    let defIV = <strong>Def: {this.state.pokeball.defIV ? this.state.pokeball.defIV : "?"}</strong>
-    let spaIV = <strong>SpA: {this.state.pokeball.spaIV ? this.state.pokeball.spaIV : "?"}</strong>
-    let spdIV = <strong>SpD: {this.state.pokeball.spdIV ? this.state.pokeball.spdIV : "?"}</strong>
-    let speIV = <strong>Spe: {this.state.pokeball.speIV ? this.state.pokeball.speIV : "?"}</strong>
+    let typeA = <img src={"/assets/types/" + this.state.pokemon.typeA + ".png"}/>;
+    let hpIV = <strong>HP: {this.state.pokeball.hpIV ? this.state.pokeball.hpIV : "?"}</strong>;
+    let atkIV = <strong>Atk: {this.state.pokeball.attIV ? this.state.pokeball.attIV : "?"}</strong>;
+    let defIV = <strong>Def: {this.state.pokeball.defIV ? this.state.pokeball.defIV : "?"}</strong>;
+    let spaIV = <strong>SpA: {this.state.pokeball.spaIV ? this.state.pokeball.spaIV : "?"}</strong>;
+    let spdIV = <strong>SpD: {this.state.pokeball.spdIV ? this.state.pokeball.spdIV : "?"}</strong>;
+    let speIV = <strong>Spe: {this.state.pokeball.speIV ? this.state.pokeball.speIV : "?"}</strong>;
 
     return (
       <div>
@@ -129,6 +129,6 @@ class ShowPokeball extends Component {
 
 ShowPokeball.contextTypes = {
   router: React.PropTypes.object.isRequired
-}
+};
 
 export default ShowPokeball

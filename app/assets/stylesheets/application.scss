@@ -127,6 +127,12 @@ textarea {
   height: 10rem;
 }
 
+.field_with_errors > .message {
+  background-color: $dark-red;
+  border: 0.25rem solid $deep-red;
+  border-radius: 0.25rem;
+}
+
 .flash-bar {
   background-color: $pale-red;
   border-bottom: 0.5rem solid $burnt-red;
@@ -165,6 +171,12 @@ textarea {
 .nav-bar {
   background-color: $orange;
   border-bottom: 0.5rem solid $burnt-red;
+
+  img {
+    display: inline;
+    float: left;
+    width: 15rem;
+  }
 }
 
 .page-head {
